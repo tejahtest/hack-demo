@@ -1,0 +1,107 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DocuVault · Living Docs</title><style>
+:root{
+  --bg:#0f1420; --panel:#161d2e; --panel2:#1d2740; --line:#2c3550; --ink:#e8edf7;
+  --muted:#93a1c4; --accent:#4f8cff; --accent2:#7c5cff; --new:#25c26e; --changed:#ffb020;
+  --lane:#2a3350;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,#1a2440 0%,var(--bg) 55%);
+  color:var(--ink);font:15px/1.5 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 20px 80px}
+.top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.crumb{color:var(--muted);font-size:13px}
+h1{font-size:26px;margin:6px 0 2px;letter-spacing:.2px}
+.sub{color:var(--muted);margin:0 0 18px;font-size:14px}
+.badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;
+  background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.stage{padding:10px 8px 4px;overflow-x:auto}
+svg{display:block;margin:0 auto;max-width:100%;height:auto}
+.diagram text{fill:var(--ink);font:13px system-ui,Segoe UI,sans-serif}
+.diagram .laneName{font-weight:600;font-size:13px}
+.diagram .laneEmoji{font-size:18px}
+.diagram .lifeline{stroke:var(--lane);stroke-width:2;stroke-dasharray:4 6}
+.diagram .msg{stroke:var(--muted);stroke-width:2;opacity:.28;transition:.25s}
+.diagram .msghead{fill:var(--muted);opacity:.28;transition:.25s}
+.diagram .cap{fill:var(--muted);opacity:.30;font-size:12px;transition:.25s}
+.diagram .laneBox{fill:var(--panel2);stroke:var(--line)}
+.diagram .step.done .msg{opacity:.85;stroke:var(--ink)}
+.diagram .step.done .msghead{opacity:.85;fill:var(--ink)}
+.diagram .step.done .cap{opacity:.9;fill:var(--ink)}
+.diagram .step.active .msg{opacity:1;stroke:var(--accent);stroke-width:3}
+.diagram .step.active .msghead{opacity:1;fill:var(--accent)}
+.diagram .step.active .cap{opacity:1;fill:var(--accent);font-weight:700}
+.diagram .step.changed.show .msg{stroke:var(--changed)!important;opacity:1}
+.diagram .step.changed.show .msghead{fill:var(--changed)!important;opacity:1}
+.diagram .step.added.show .msg{stroke:var(--new)!important;opacity:1}
+.diagram .step.added.show .msghead{fill:var(--new)!important;opacity:1}
+.diagram .tag{font-size:10px;font-weight:700}
+.diagram .tag.changed{fill:var(--changed)}
+.diagram .tag.added{fill:var(--new)}
+.narr{padding:16px 20px;border-top:1px solid var(--line);min-height:96px}
+.narr .say{font-size:19px;margin:0 0 8px}
+.narr .tech{font:12.5px ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted);
+  word-break:break-word}
+.pills{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.pill{font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.pill.changed{color:var(--changed);border-color:var(--changed)}
+.pill.added{color:var(--new);border-color:var(--new)}
+.ctl{display:flex;align-items:center;gap:10px;padding:14px 20px;border-top:1px solid var(--line);
+  flex-wrap:wrap}
+button{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:10px;
+  padding:8px 14px;font-size:14px;cursor:pointer;transition:.15s}
+button:hover{border-color:var(--accent);color:#fff}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+button:disabled{opacity:.4;cursor:default}
+.counter{color:var(--muted);font-variant-numeric:tabular-nums;margin-left:auto}
+.toggle{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;cursor:pointer;user-select:none}
+.toggle input{accent-color:var(--changed);width:16px;height:16px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:14px 2px 0;color:var(--muted);font-size:12px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:18px}
+.flowcard{padding:18px;text-decoration:none;color:inherit;display:block}
+.flowcard:hover{border-color:var(--accent)}
+.flowcard h3{margin:0 0 6px;font-size:17px}
+.flowcard p{margin:0 0 12px;color:var(--muted);font-size:13.5px;min-height:38px}
+.flowcard .meta{color:var(--muted);font-size:12px}
+.lanes-mini{margin-top:10px;font-size:16px;letter-spacing:2px}
+.foot{margin-top:34px;color:var(--muted);font-size:12px;text-align:center}
+</style></head>
+<body><div class="wrap">
+  <div class="crumb">Code2Docs · Interactive Living Docs</div>
+  <div class="top"><h1>DocuVault</h1><span class="badge">v1.2.0.0</span></div>
+  <p class="sub">Playable, narrated walkthroughs generated from the code graph. Pick a flow to watch it step through in plain language.</p>
+  <div class="grid"><a class="card flowcard" href="handle-open-document.html">
+          <h3>.handle open document</h3><p>9 steps across 3 components.</p>
+          <div class="lanes-mini">🧑📦📦📦</div>
+          <div class="meta">9 steps · 3 components </div></a>
+<a class="card flowcard" href="handle-revoke-access.html">
+          <h3>.handle revoke access</h3><p>9 steps across 4 components.</p>
+          <div class="lanes-mini">🧑📦📦📦📦</div>
+          <div class="meta">9 steps · 4 components </div></a>
+<a class="card flowcard" href="handle-share-document.html">
+          <h3>.handle share document</h3><p>9 steps across 4 components.</p>
+          <div class="lanes-mini">🧑📦📦📦📦</div>
+          <div class="meta">9 steps · 4 components </div></a>
+<a class="card flowcard" href="handle-upload-document.html">
+          <h3>.handle upload document</h3><p>9 steps across 4 components.</p>
+          <div class="lanes-mini">🧑📦📦📦📦</div>
+          <div class="meta">9 steps · 4 components </div></a>
+<a class="card flowcard" href="handle-register-user.html">
+          <h3>.handle register user</h3><p>9 steps across 5 components.</p>
+          <div class="lanes-mini">🧑📦📦📦📦📦</div>
+          <div class="meta">9 steps · 5 components </div></a>
+<a class="card flowcard" href="handle-delete-document.html">
+          <h3>.handle delete document</h3><p>9 steps across 3 components.</p>
+          <div class="lanes-mini">🧑📦📦📦</div>
+          <div class="meta">9 steps · 3 components </div></a>
+<a class="card flowcard" href="handle-generate-report.html">
+          <h3>.handle generate report</h3><p>9 steps across 3 components.</p>
+          <div class="lanes-mini">🧑📦📦📦</div>
+          <div class="meta">9 steps · 3 components </div></a></div>
+  <p class="foot">7 flows · generated by Code2Docs · source of truth is graphify-out/graph.json</p>
+</div></body></html>

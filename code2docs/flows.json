@@ -1,0 +1,895 @@
+{
+  "module": "DocuVault",
+  "moduleRoot": "src",
+  "version": "1.2.0.0",
+  "baselineVersion": "1.2",
+  "generatedFrom": "4a428ebc79494b2db423fa7680d7f3e7135d7f66",
+  "flows": [
+    {
+      "id": "handle-open-document",
+      "title": ".handle open document",
+      "module": "DocuVault",
+      "entry": {
+        "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleopendocument",
+        "label": ".handleOpenDocument()",
+        "file": "main/java/com/docuvault/api/DocumentController.java"
+      },
+      "actors": [
+        {
+          "name": "You",
+          "emoji": "🧑"
+        },
+        {
+          "name": "Component 1",
+          "emoji": "📦",
+          "community": 1
+        },
+        {
+          "name": "Component 7",
+          "emoji": "📦",
+          "community": 7
+        },
+        {
+          "name": "Component 3",
+          "emoji": "📦",
+          "community": 3
+        }
+      ],
+      "steps": [
+        {
+          "from": 0,
+          "to": 1,
+          "cap": ".handleOpenDocument",
+          "say": "You start \".handle open document\".",
+          "tech": "Entry point `.handleOpenDocument()`  ·  main/java/com/docuvault/api/DocumentController.java:L24",
+          "fromId": "__user__",
+          "toId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleopendocument",
+          "rel": "triggers"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".logInfo",
+          "say": ".log info.",
+          "tech": "`.handleOpenDocument()` -> `.logInfo()`  ·  main/java/com/docuvault/util/VaultLogger.java:L25",
+          "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleopendocument",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": ".emit",
+          "say": "Component 7: .emit.",
+          "tech": "`.logInfo()` -> `.emit()`  ·  main/java/com/docuvault/util/VaultLogger.java:L11",
+          "fromId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_emit",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".openDocument",
+          "say": ".open document.",
+          "tech": "`.handleOpenDocument()` -> `.openDocument()`  ·  main/java/com/docuvault/service/DocumentService.java:L26",
+          "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleopendocument",
+          "toId": "main_java_com_docuvault_service_documentservice_documentservice_opendocument",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 3,
+          "cap": ".checkAccess",
+          "say": "Component 3: .check access.",
+          "tech": "`.openDocument()` -> `.checkAccess()`  ·  main/java/com/docuvault/service/AccessService.java:L48",
+          "fromId": "main_java_com_docuvault_service_documentservice_documentservice_opendocument",
+          "toId": "main_java_com_docuvault_service_accessservice_accessservice_checkaccess",
+          "rel": "calls"
+        },
+        {
+          "from": 3,
+          "to": 3,
+          "cap": ".evaluatePolicy",
+          "say": ".evaluate policy.",
+          "tech": "`.checkAccess()` -> `.evaluatePolicy()`  ·  main/java/com/docuvault/service/PolicyService.java:L64",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_checkaccess",
+          "toId": "main_java_com_docuvault_service_policyservice_policyservice_evaluatepolicy",
+          "rel": "calls"
+        },
+        {
+          "from": 3,
+          "to": 3,
+          "cap": ".findPolicyForUser",
+          "say": ".find policy for user.",
+          "tech": "`.evaluatePolicy()` -> `.findPolicyForUser()`  ·  main/java/com/docuvault/repository/PolicyRepository.java:L21",
+          "fromId": "main_java_com_docuvault_service_policyservice_policyservice_evaluatepolicy",
+          "toId": "main_java_com_docuvault_repository_policyrepository_policyrepository_findpolicyforuser",
+          "rel": "calls"
+        },
+        {
+          "from": 3,
+          "to": 3,
+          "cap": ".getPermission",
+          "say": ".get permission.",
+          "tech": "`.evaluatePolicy()` -> `.getPermission()`  ·  main/java/com/docuvault/model/Policy.java:L25",
+          "fromId": "main_java_com_docuvault_service_policyservice_policyservice_evaluatepolicy",
+          "toId": "main_java_com_docuvault_model_policy_policy_getpermission",
+          "rel": "calls"
+        },
+        {
+          "from": 3,
+          "to": 2,
+          "cap": ".logWarning",
+          "say": "Component 7: .log warning.",
+          "tech": "`.evaluatePolicy()` -> `.logWarning()`  ·  main/java/com/docuvault/util/VaultLogger.java:L27",
+          "fromId": "main_java_com_docuvault_service_policyservice_policyservice_evaluatepolicy",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_logwarning",
+          "rel": "calls"
+        }
+      ]
+    },
+    {
+      "id": "handle-revoke-access",
+      "title": ".handle revoke access",
+      "module": "DocuVault",
+      "entry": {
+        "id": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlerevokeaccess",
+        "label": ".handleRevokeAccess()",
+        "file": "main/java/com/docuvault/api/AccessController.java"
+      },
+      "actors": [
+        {
+          "name": "You",
+          "emoji": "🧑"
+        },
+        {
+          "name": "Component 5",
+          "emoji": "📦",
+          "community": 5
+        },
+        {
+          "name": "Component 1",
+          "emoji": "📦",
+          "community": 1
+        },
+        {
+          "name": "Component 7",
+          "emoji": "📦",
+          "community": 7
+        },
+        {
+          "name": "Component 0",
+          "emoji": "📦",
+          "community": 0
+        }
+      ],
+      "steps": [
+        {
+          "from": 0,
+          "to": 1,
+          "cap": ".handleRevokeAccess",
+          "say": "You start \".handle revoke access\".",
+          "tech": "Entry point `.handleRevokeAccess()`  ·  main/java/com/docuvault/api/AccessController.java:L28",
+          "fromId": "__user__",
+          "toId": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlerevokeaccess",
+          "rel": "triggers"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": ".logInfo",
+          "say": "Component 1: .log info.",
+          "tech": "`.handleRevokeAccess()` -> `.logInfo()`  ·  main/java/com/docuvault/util/VaultLogger.java:L29",
+          "fromId": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlerevokeaccess",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "cap": ".emit",
+          "say": "Component 7: .emit.",
+          "tech": "`.logInfo()` -> `.emit()`  ·  main/java/com/docuvault/util/VaultLogger.java:L11",
+          "fromId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_emit",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 4,
+          "cap": ".revokeAccess",
+          "say": "Component 0: .revoke access.",
+          "tech": "`.handleRevokeAccess()` -> `.revokeAccess()`  ·  main/java/com/docuvault/service/AccessService.java:L31",
+          "fromId": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlerevokeaccess",
+          "toId": "main_java_com_docuvault_service_accessservice_accessservice_revokeaccess",
+          "rel": "calls"
+        },
+        {
+          "from": 4,
+          "to": 2,
+          "cap": ".findDocument",
+          "say": "Component 1: .find document.",
+          "tech": "`.revokeAccess()` -> `.findDocument()`  ·  main/java/com/docuvault/repository/DocumentRepository.java:L74",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_revokeaccess",
+          "toId": "main_java_com_docuvault_repository_documentrepository_documentrepository_finddocument",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "cap": ".isShredded",
+          "say": ".is shredded.",
+          "tech": "`.findDocument()` -> `.isShredded()`  ·  main/java/com/docuvault/model/Document.java:L19",
+          "fromId": "main_java_com_docuvault_repository_documentrepository_documentrepository_finddocument",
+          "toId": "main_java_com_docuvault_model_document_document_isshredded",
+          "rel": "calls"
+        },
+        {
+          "from": 4,
+          "to": 4,
+          "cap": ".findUser",
+          "say": ".find user.",
+          "tech": "`.revokeAccess()` -> `.findUser()`  ·  main/java/com/docuvault/repository/UserRepository.java:L75",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_revokeaccess",
+          "toId": "main_java_com_docuvault_repository_userrepository_userrepository_finduser",
+          "rel": "calls"
+        },
+        {
+          "from": 4,
+          "to": 4,
+          "cap": ".getEmail",
+          "say": ".get email.",
+          "tech": "`.revokeAccess()` -> `.getEmail()`  ·  main/java/com/docuvault/model/User.java:L80",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_revokeaccess",
+          "toId": "main_java_com_docuvault_model_user_user_getemail",
+          "rel": "calls"
+        },
+        {
+          "from": 4,
+          "to": 4,
+          "cap": ".getFileName",
+          "say": ".get file name.",
+          "tech": "`.revokeAccess()` -> `.getFileName()`  ·  main/java/com/docuvault/model/Document.java:L80",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_revokeaccess",
+          "toId": "main_java_com_docuvault_model_document_document_getfilename",
+          "rel": "calls"
+        }
+      ]
+    },
+    {
+      "id": "handle-share-document",
+      "title": ".handle share document",
+      "module": "DocuVault",
+      "entry": {
+        "id": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlesharedocument",
+        "label": ".handleShareDocument()",
+        "file": "main/java/com/docuvault/api/AccessController.java"
+      },
+      "actors": [
+        {
+          "name": "You",
+          "emoji": "🧑"
+        },
+        {
+          "name": "Component 5",
+          "emoji": "📦",
+          "community": 5
+        },
+        {
+          "name": "Component 0",
+          "emoji": "📦",
+          "community": 0
+        },
+        {
+          "name": "Component 3",
+          "emoji": "📦",
+          "community": 3
+        },
+        {
+          "name": "Component 1",
+          "emoji": "📦",
+          "community": 1
+        }
+      ],
+      "steps": [
+        {
+          "from": 0,
+          "to": 1,
+          "cap": ".handleShareDocument",
+          "say": "You start \".handle share document\".",
+          "tech": "Entry point `.handleShareDocument()`  ·  main/java/com/docuvault/api/AccessController.java:L18",
+          "fromId": "__user__",
+          "toId": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlesharedocument",
+          "rel": "triggers"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".getGrantId",
+          "say": ".get grant ID.",
+          "tech": "`.handleShareDocument()` -> `.getGrantId()`  ·  main/java/com/docuvault/model/AccessGrant.java:L24",
+          "fromId": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlesharedocument",
+          "toId": "main_java_com_docuvault_model_accessgrant_accessgrant_getgrantid",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": ".grantAccess",
+          "say": "Component 0: .grant access.",
+          "tech": "`.handleShareDocument()` -> `.grantAccess()`  ·  main/java/com/docuvault/service/AccessService.java:L23",
+          "fromId": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlesharedocument",
+          "toId": "main_java_com_docuvault_service_accessservice_accessservice_grantaccess",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "cap": ".createSharePolicy",
+          "say": "Component 3: .create share policy.",
+          "tech": "`.grantAccess()` -> `.createSharePolicy()`  ·  main/java/com/docuvault/service/PolicyService.java:L47",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_grantaccess",
+          "toId": "main_java_com_docuvault_service_policyservice_policyservice_createsharepolicy",
+          "rel": "calls"
+        },
+        {
+          "from": 3,
+          "to": 3,
+          "cap": ".savePolicy",
+          "say": ".save policy.",
+          "tech": "`.createSharePolicy()` -> `.savePolicy()`  ·  main/java/com/docuvault/repository/PolicyRepository.java:L36",
+          "fromId": "main_java_com_docuvault_service_policyservice_policyservice_createsharepolicy",
+          "toId": "main_java_com_docuvault_repository_policyrepository_policyrepository_savepolicy",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 4,
+          "cap": ".findDocument",
+          "say": "Component 1: .find document.",
+          "tech": "`.grantAccess()` -> `.findDocument()`  ·  main/java/com/docuvault/repository/DocumentRepository.java:L43",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_grantaccess",
+          "toId": "main_java_com_docuvault_repository_documentrepository_documentrepository_finddocument",
+          "rel": "calls"
+        },
+        {
+          "from": 4,
+          "to": 4,
+          "cap": ".isShredded",
+          "say": ".is shredded.",
+          "tech": "`.findDocument()` -> `.isShredded()`  ·  main/java/com/docuvault/model/Document.java:L19",
+          "fromId": "main_java_com_docuvault_repository_documentrepository_documentrepository_finddocument",
+          "toId": "main_java_com_docuvault_model_document_document_isshredded",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "cap": ".findUser",
+          "say": ".find user.",
+          "tech": "`.grantAccess()` -> `.findUser()`  ·  main/java/com/docuvault/repository/UserRepository.java:L44",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_grantaccess",
+          "toId": "main_java_com_docuvault_repository_userrepository_userrepository_finduser",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "cap": ".getDisplayName",
+          "say": ".get display name.",
+          "tech": "`.grantAccess()` -> `.getDisplayName()`  ·  main/java/com/docuvault/model/User.java:L52",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_grantaccess",
+          "toId": "main_java_com_docuvault_model_user_user_getdisplayname",
+          "rel": "calls"
+        }
+      ]
+    },
+    {
+      "id": "handle-upload-document",
+      "title": ".handle upload document",
+      "module": "DocuVault",
+      "entry": {
+        "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleuploaddocument",
+        "label": ".handleUploadDocument()",
+        "file": "main/java/com/docuvault/api/DocumentController.java"
+      },
+      "actors": [
+        {
+          "name": "You",
+          "emoji": "🧑"
+        },
+        {
+          "name": "Component 1",
+          "emoji": "📦",
+          "community": 1
+        },
+        {
+          "name": "Component 7",
+          "emoji": "📦",
+          "community": 7
+        },
+        {
+          "name": "Component 6",
+          "emoji": "📦",
+          "community": 6
+        },
+        {
+          "name": "Component 4",
+          "emoji": "📦",
+          "community": 4
+        }
+      ],
+      "steps": [
+        {
+          "from": 0,
+          "to": 1,
+          "cap": ".handleUploadDocument",
+          "say": "You start \".handle upload document\".",
+          "tech": "Entry point `.handleUploadDocument()`  ·  main/java/com/docuvault/api/DocumentController.java:L17",
+          "fromId": "__user__",
+          "toId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleuploaddocument",
+          "rel": "triggers"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".logInfo",
+          "say": ".log info.",
+          "tech": "`.handleUploadDocument()` -> `.logInfo()`  ·  main/java/com/docuvault/util/VaultLogger.java:L18",
+          "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleuploaddocument",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": ".emit",
+          "say": "Component 7: .emit.",
+          "tech": "`.logInfo()` -> `.emit()`  ·  main/java/com/docuvault/util/VaultLogger.java:L11",
+          "fromId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_emit",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".uploadDocument",
+          "say": ".upload document.",
+          "tech": "`.handleUploadDocument()` -> `.uploadDocument()`  ·  main/java/com/docuvault/service/DocumentService.java:L19",
+          "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleuploaddocument",
+          "toId": "main_java_com_docuvault_service_documentservice_documentservice_uploaddocument",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".encryptDocument",
+          "say": ".encrypt document.",
+          "tech": "`.uploadDocument()` -> `.encryptDocument()`  ·  main/java/com/docuvault/crypto/EncryptionEngine.java:L38",
+          "fromId": "main_java_com_docuvault_service_documentservice_documentservice_uploaddocument",
+          "toId": "main_java_com_docuvault_crypto_encryptionengine_encryptionengine_encryptdocument",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 3,
+          "cap": ".applyAesCipher",
+          "say": "Component 6: .apply AES cipher.",
+          "tech": "`.encryptDocument()` -> `.applyAesCipher()`  ·  main/java/com/docuvault/crypto/CipherUtil.java:L19",
+          "fromId": "main_java_com_docuvault_crypto_encryptionengine_encryptionengine_encryptdocument",
+          "toId": "main_java_com_docuvault_crypto_cipherutil_cipherutil_applyaescipher",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 4,
+          "cap": ".generateKey",
+          "say": "Component 4: .generate key.",
+          "tech": "`.encryptDocument()` -> `.generateKey()`  ·  main/java/com/docuvault/crypto/KeyManager.java:L18",
+          "fromId": "main_java_com_docuvault_crypto_encryptionengine_encryptionengine_encryptdocument",
+          "toId": "main_java_com_docuvault_crypto_keymanager_keymanager_generatekey",
+          "rel": "calls"
+        },
+        {
+          "from": 4,
+          "to": 4,
+          "cap": ".generateKeyMaterial",
+          "say": ".generate key material.",
+          "tech": "`.generateKey()` -> `.generateKeyMaterial()`  ·  main/java/com/docuvault/crypto/CipherUtil.java:L20",
+          "fromId": "main_java_com_docuvault_crypto_keymanager_keymanager_generatekey",
+          "toId": "main_java_com_docuvault_crypto_cipherutil_cipherutil_generatekeymaterial",
+          "rel": "calls"
+        },
+        {
+          "from": 4,
+          "to": 4,
+          "cap": ".storeKey",
+          "say": ".store key.",
+          "tech": "`.generateKey()` -> `.storeKey()`  ·  main/java/com/docuvault/repository/KeyStoreRepository.java:L22",
+          "fromId": "main_java_com_docuvault_crypto_keymanager_keymanager_generatekey",
+          "toId": "main_java_com_docuvault_repository_keystorerepository_keystorerepository_storekey",
+          "rel": "calls"
+        }
+      ]
+    },
+    {
+      "id": "handle-register-user",
+      "title": ".handle register user",
+      "module": "DocuVault",
+      "entry": {
+        "id": "main_java_com_docuvault_api_usercontroller_usercontroller_handleregisteruser",
+        "label": ".handleRegisterUser()",
+        "file": "main/java/com/docuvault/api/UserController.java"
+      },
+      "actors": [
+        {
+          "name": "You",
+          "emoji": "🧑"
+        },
+        {
+          "name": "Component 0",
+          "emoji": "📦",
+          "community": 0
+        },
+        {
+          "name": "Component 1",
+          "emoji": "📦",
+          "community": 1
+        },
+        {
+          "name": "Component 7",
+          "emoji": "📦",
+          "community": 7
+        },
+        {
+          "name": "Component 6",
+          "emoji": "📦",
+          "community": 6
+        },
+        {
+          "name": "Component 2",
+          "emoji": "📦",
+          "community": 2
+        }
+      ],
+      "steps": [
+        {
+          "from": 0,
+          "to": 1,
+          "cap": ".handleRegisterUser",
+          "say": "You start \".handle register user\".",
+          "tech": "Entry point `.handleRegisterUser()`  ·  main/java/com/docuvault/api/UserController.java:L17",
+          "fromId": "__user__",
+          "toId": "main_java_com_docuvault_api_usercontroller_usercontroller_handleregisteruser",
+          "rel": "triggers"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".getUserId",
+          "say": ".get user ID.",
+          "tech": "`.handleRegisterUser()` -> `.getUserId()`  ·  main/java/com/docuvault/model/User.java:L20",
+          "fromId": "main_java_com_docuvault_api_usercontroller_usercontroller_handleregisteruser",
+          "toId": "main_java_com_docuvault_model_user_user_getuserid",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": ".logInfo",
+          "say": "Component 1: .log info.",
+          "tech": "`.handleRegisterUser()` -> `.logInfo()`  ·  main/java/com/docuvault/util/VaultLogger.java:L18",
+          "fromId": "main_java_com_docuvault_api_usercontroller_usercontroller_handleregisteruser",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "cap": ".emit",
+          "say": "Component 7: .emit.",
+          "tech": "`.logInfo()` -> `.emit()`  ·  main/java/com/docuvault/util/VaultLogger.java:L11",
+          "fromId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_emit",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".registerUser",
+          "say": ".register user.",
+          "tech": "`.handleRegisterUser()` -> `.registerUser()`  ·  main/java/com/docuvault/service/UserService.java:L19",
+          "fromId": "main_java_com_docuvault_api_usercontroller_usercontroller_handleregisteruser",
+          "toId": "main_java_com_docuvault_service_userservice_userservice_registeruser",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".findUserByEmail",
+          "say": ".find user by email.",
+          "tech": "`.registerUser()` -> `.findUserByEmail()`  ·  main/java/com/docuvault/repository/UserRepository.java:L29",
+          "fromId": "main_java_com_docuvault_service_userservice_userservice_registeruser",
+          "toId": "main_java_com_docuvault_repository_userrepository_userrepository_finduserbyemail",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 4,
+          "cap": ".hashPassword",
+          "say": "Component 6: .hash password.",
+          "tech": "`.registerUser()` -> `.hashPassword()`  ·  main/java/com/docuvault/crypto/CipherUtil.java:L33",
+          "fromId": "main_java_com_docuvault_service_userservice_userservice_registeruser",
+          "toId": "main_java_com_docuvault_crypto_cipherutil_cipherutil_hashpassword",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 5,
+          "cap": ".recordEvent",
+          "say": "Component 2: .record event.",
+          "tech": "`.registerUser()` -> `.recordEvent()`  ·  main/java/com/docuvault/service/AuditService.java:L36",
+          "fromId": "main_java_com_docuvault_service_userservice_userservice_registeruser",
+          "toId": "main_java_com_docuvault_service_auditservice_auditservice_recordevent",
+          "rel": "calls"
+        },
+        {
+          "from": 5,
+          "to": 5,
+          "cap": ".appendEvent",
+          "say": ".append event.",
+          "tech": "`.recordEvent()` -> `.appendEvent()`  ·  main/java/com/docuvault/repository/AuditRepository.java:L26",
+          "fromId": "main_java_com_docuvault_service_auditservice_auditservice_recordevent",
+          "toId": "main_java_com_docuvault_repository_auditrepository_auditrepository_appendevent",
+          "rel": "calls"
+        }
+      ]
+    },
+    {
+      "id": "handle-delete-document",
+      "title": ".handle delete document",
+      "module": "DocuVault",
+      "entry": {
+        "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handledeletedocument",
+        "label": ".handleDeleteDocument()",
+        "file": "main/java/com/docuvault/api/DocumentController.java"
+      },
+      "actors": [
+        {
+          "name": "You",
+          "emoji": "🧑"
+        },
+        {
+          "name": "Component 1",
+          "emoji": "📦",
+          "community": 1
+        },
+        {
+          "name": "Component 4",
+          "emoji": "📦",
+          "community": 4
+        },
+        {
+          "name": "Component 7",
+          "emoji": "📦",
+          "community": 7
+        }
+      ],
+      "steps": [
+        {
+          "from": 0,
+          "to": 1,
+          "cap": ".handleDeleteDocument",
+          "say": "You start \".handle delete document\".",
+          "tech": "Entry point `.handleDeleteDocument()`  ·  main/java/com/docuvault/api/DocumentController.java:L30",
+          "fromId": "__user__",
+          "toId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handledeletedocument",
+          "rel": "triggers"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".deleteDocument",
+          "say": ".delete document.",
+          "tech": "`.handleDeleteDocument()` -> `.deleteDocument()`  ·  main/java/com/docuvault/service/DocumentService.java:L32",
+          "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handledeletedocument",
+          "toId": "main_java_com_docuvault_service_documentservice_documentservice_deletedocument",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": ".destroyKey",
+          "say": "Component 4: .destroy key.",
+          "tech": "`.deleteDocument()` -> `.destroyKey()`  ·  main/java/com/docuvault/crypto/KeyManager.java:L61",
+          "fromId": "main_java_com_docuvault_service_documentservice_documentservice_deletedocument",
+          "toId": "main_java_com_docuvault_crypto_keymanager_keymanager_destroykey",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "cap": ".deleteKey",
+          "say": ".delete key.",
+          "tech": "`.destroyKey()` -> `.deleteKey()`  ·  main/java/com/docuvault/repository/KeyStoreRepository.java:L50",
+          "fromId": "main_java_com_docuvault_crypto_keymanager_keymanager_destroykey",
+          "toId": "main_java_com_docuvault_repository_keystorerepository_keystorerepository_deletekey",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "cap": ".markDestroyed",
+          "say": ".mark destroyed.",
+          "tech": "`.deleteKey()` -> `.markDestroyed()`  ·  main/java/com/docuvault/model/EncryptionKey.java:L28",
+          "fromId": "main_java_com_docuvault_repository_keystorerepository_keystorerepository_deletekey",
+          "toId": "main_java_com_docuvault_model_encryptionkey_encryptionkey_markdestroyed",
+          "rel": "calls"
+        },
+        {
+          "from": 2,
+          "to": 1,
+          "cap": ".logInfo",
+          "say": "Component 1: .log info.",
+          "tech": "`.destroyKey()` -> `.logInfo()`  ·  main/java/com/docuvault/util/VaultLogger.java:L51",
+          "fromId": "main_java_com_docuvault_crypto_keymanager_keymanager_destroykey",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 3,
+          "cap": ".emit",
+          "say": "Component 7: .emit.",
+          "tech": "`.logInfo()` -> `.emit()`  ·  main/java/com/docuvault/util/VaultLogger.java:L11",
+          "fromId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_emit",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".findDocument",
+          "say": ".find document.",
+          "tech": "`.deleteDocument()` -> `.findDocument()`  ·  main/java/com/docuvault/repository/DocumentRepository.java:L60",
+          "fromId": "main_java_com_docuvault_service_documentservice_documentservice_deletedocument",
+          "toId": "main_java_com_docuvault_repository_documentrepository_documentrepository_finddocument",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".isShredded",
+          "say": ".is shredded.",
+          "tech": "`.findDocument()` -> `.isShredded()`  ·  main/java/com/docuvault/model/Document.java:L19",
+          "fromId": "main_java_com_docuvault_repository_documentrepository_documentrepository_finddocument",
+          "toId": "main_java_com_docuvault_model_document_document_isshredded",
+          "rel": "calls"
+        }
+      ]
+    },
+    {
+      "id": "handle-generate-report",
+      "title": ".handle generate report",
+      "module": "DocuVault",
+      "entry": {
+        "id": "main_java_com_docuvault_api_auditcontroller_auditcontroller_handlegeneratereport",
+        "label": ".handleGenerateReport()",
+        "file": "main/java/com/docuvault/api/AuditController.java"
+      },
+      "actors": [
+        {
+          "name": "You",
+          "emoji": "🧑"
+        },
+        {
+          "name": "Component 2",
+          "emoji": "📦",
+          "community": 2
+        },
+        {
+          "name": "Component 7",
+          "emoji": "📦",
+          "community": 7
+        },
+        {
+          "name": "Component 1",
+          "emoji": "📦",
+          "community": 1
+        }
+      ],
+      "steps": [
+        {
+          "from": 0,
+          "to": 1,
+          "cap": ".handleGenerateReport",
+          "say": "You start \".handle generate report\".",
+          "tech": "Entry point `.handleGenerateReport()`  ·  main/java/com/docuvault/api/AuditController.java:L19",
+          "fromId": "__user__",
+          "toId": "main_java_com_docuvault_api_auditcontroller_auditcontroller_handlegeneratereport",
+          "rel": "triggers"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".buildComplianceReport",
+          "say": ".build compliance report.",
+          "tech": "`.handleGenerateReport()` -> `.buildComplianceReport()`  ·  main/java/com/docuvault/service/AuditService.java:L21",
+          "fromId": "main_java_com_docuvault_api_auditcontroller_auditcontroller_handlegeneratereport",
+          "toId": "main_java_com_docuvault_service_auditservice_auditservice_buildcompliancereport",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".findEventsInRange",
+          "say": ".find events in range.",
+          "tech": "`.buildComplianceReport()` -> `.findEventsInRange()`  ·  main/java/com/docuvault/repository/AuditRepository.java:L32",
+          "fromId": "main_java_com_docuvault_service_auditservice_auditservice_buildcompliancereport",
+          "toId": "main_java_com_docuvault_repository_auditrepository_auditrepository_findeventsinrange",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".getOccurredAt",
+          "say": ".get occurred at.",
+          "tech": "`.findEventsInRange()` -> `.getOccurredAt()`  ·  main/java/com/docuvault/model/AuditEvent.java:L20",
+          "fromId": "main_java_com_docuvault_repository_auditrepository_auditrepository_findeventsinrange",
+          "toId": "main_java_com_docuvault_model_auditevent_auditevent_getoccurredat",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".getActorId",
+          "say": ".get actor ID.",
+          "tech": "`.buildComplianceReport()` -> `.getActorId()`  ·  main/java/com/docuvault/model/AuditEvent.java:L40",
+          "fromId": "main_java_com_docuvault_service_auditservice_auditservice_buildcompliancereport",
+          "toId": "main_java_com_docuvault_model_auditevent_auditevent_getactorid",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".getDetail",
+          "say": ".get detail.",
+          "tech": "`.buildComplianceReport()` -> `.getDetail()`  ·  main/java/com/docuvault/model/AuditEvent.java:L42",
+          "fromId": "main_java_com_docuvault_service_auditservice_auditservice_buildcompliancereport",
+          "toId": "main_java_com_docuvault_model_auditevent_auditevent_getdetail",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": ".getType",
+          "say": ".get type.",
+          "tech": "`.buildComplianceReport()` -> `.getType()`  ·  main/java/com/docuvault/model/AuditEvent.java:L39",
+          "fromId": "main_java_com_docuvault_service_auditservice_auditservice_buildcompliancereport",
+          "toId": "main_java_com_docuvault_model_auditevent_auditevent_gettype",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": ".writeReportFile",
+          "say": "Component 7: .write report file.",
+          "tech": "`.buildComplianceReport()` -> `.writeReportFile()`  ·  main/java/com/docuvault/util/FileUtil.java:L45",
+          "fromId": "main_java_com_docuvault_service_auditservice_auditservice_buildcompliancereport",
+          "toId": "main_java_com_docuvault_util_fileutil_fileutil_writereportfile",
+          "rel": "calls"
+        },
+        {
+          "from": 1,
+          "to": 3,
+          "cap": ".logInfo",
+          "say": "Component 1: .log info.",
+          "tech": "`.handleGenerateReport()` -> `.logInfo()`  ·  main/java/com/docuvault/util/VaultLogger.java:L20",
+          "fromId": "main_java_com_docuvault_api_auditcontroller_auditcontroller_handlegeneratereport",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "rel": "calls"
+        }
+      ]
+    }
+  ]
+}
