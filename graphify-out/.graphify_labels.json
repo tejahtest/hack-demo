@@ -1,13 +1,12 @@
 {
   "0": "Document",
   "1": "User",
-  "2": "EncryptionKey",
+  "2": "DocumentRepository",
   "3": "AuditEvent",
   "4": "Policy",
-  "5": "AccessService",
-  "6": "VaultLogger.java",
-  "7": ".logInfo",
-  "8": "CipherUtil",
-  "9": "FileUtil",
-  "10": "InputValidator"
+  "5": "EncryptionKey",
+  "6": ".logInfo",
+  "7": "AccessGrant",
+  "8": "InputValidator",
+  "9": "NotificationService"
 }
