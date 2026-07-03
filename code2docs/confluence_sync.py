@@ -47,9 +47,9 @@ def mermaid_diagram(flow: dict, version: str) -> str:
     for s in flow.get("steps", []):
         cap = s.get("cap", "")
         tag = ""
-        if s.get("since") == version:
+        if c2d.step_new_in(s, version):
             tag = f"  🆕 new in {version}"
-        elif s.get("changed"):
+        elif c2d.step_changed_in(s, version):
             tag = "  ✏️ changed"
         arrow = "->>" if s["from"] != s["to"] else "-)"
         lines.append(f'    P{s["from"]}{arrow}P{s["to"]}: {mm_escape(cap)}{tag}')
@@ -75,8 +75,8 @@ def storage_body(flow: dict, doc: dict, cfg: dict) -> str:
         parts.append(f'<p><a href="{esc(base)}/{flow["id"]}.html">▶ Open the interactive living doc</a></p>')
 
     # release highlight callout
-    added = [s for s in flow["steps"] if s.get("since") == version]
-    changed = [s for s in flow["steps"] if s.get("changed")]
+    added = [s for s in flow["steps"] if c2d.step_new_in(s, version)]
+    changed = [s for s in flow["steps"] if c2d.step_changed_in(s, version)]
     if added or changed:
         items = "".join(f"<li>🆕 new: {esc(s.get('cap',''))}</li>" for s in added) + \
                 "".join(f"<li>✏️ changed: {esc(s.get('cap',''))}</li>" for s in changed)
@@ -104,9 +104,9 @@ def storage_body(flow: dict, doc: dict, cfg: dict) -> str:
     parts.append("<h2>Step by step</h2><ol>")
     for s in flow["steps"]:
         badge = ""
-        if s.get("since") == version:
+        if c2d.step_new_in(s, version):
             badge = f' <ac:structured-macro ac:name="status"><ac:parameter ac:name="colour">Green</ac:parameter><ac:parameter ac:name="title">new in {esc(version)}</ac:parameter></ac:structured-macro>'
-        elif s.get("changed"):
+        elif c2d.step_changed_in(s, version):
             badge = ' <ac:structured-macro ac:name="status"><ac:parameter ac:name="colour">Yellow</ac:parameter><ac:parameter ac:name="title">changed</ac:parameter></ac:structured-macro>'
         parts.append(f"<li>{esc(s.get('say', s.get('cap','')))}{badge}"
                      f"<br/><code>{esc(s.get('tech',''))}</code></li>")

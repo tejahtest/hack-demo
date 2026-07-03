@@ -75,6 +75,26 @@ def short_version(version: str) -> str:
     return ".".join(parts[:2]) if len(parts) >= 2 else version
 
 
+# ---- release-highlight scoping ------------------------------------------
+# A highlight is shown only for the CURRENT release. Each step carries the
+# version it arrived (`since`) or was last changed (`changedIn`) in; rendering
+# is a pure `tag == current_version` test, so a step introduced in 1.3 stops
+# lighting up once the docs are built at 1.4 — without deleting the history.
+
+def step_new_in(step: dict, version: str) -> bool:
+    """True if this step was ADDED in `version` (short form, e.g. '1.3')."""
+    return step.get("since") == version
+
+
+def step_changed_in(step: dict, version: str) -> bool:
+    """True if this step was CHANGED in `version`. Legacy flows stamped a bare
+    `changed: true` with no version — honour those so pre-existing data still
+    renders, but anything written since carries an explicit `changedIn`."""
+    if "changedIn" in step:
+        return step["changedIn"] == version
+    return bool(step.get("changed"))
+
+
 # ---- text helpers -------------------------------------------------------
 
 _CAMEL = re.compile(r"(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])")

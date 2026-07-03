@@ -165,6 +165,10 @@ def main():
 
     if args.apply_flows:
         n = apply_highlights(doc, impacted, new_nodes, version)
+        # Keep the doc header in step with VERSION.txt so the "current version"
+        # the renderers scope highlights to advances as soon as flows are
+        # applied — not only when the later Discover-new-flows step runs.
+        doc["version"] = c2d.read_version(cfg)
         flows_path.write_text(json.dumps(doc, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"Applied highlights to {n} flow(s) -> {flows_path}")
 
@@ -212,6 +216,7 @@ def apply_highlights(doc, impacted, new_nodes, version):
             idx = mc["step"]
             if 0 <= idx < len(flow["steps"]):
                 flow["steps"][idx]["changed"] = True
+                flow["steps"][idx]["changedIn"] = version   # which release changed it
         # community -> lane index, extending actors if a new lane is needed
         lane_of = {a.get("community"): i for i, a in enumerate(flow["actors"]) if a.get("community") is not None}
 
