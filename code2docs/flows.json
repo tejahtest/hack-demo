@@ -1,7 +1,7 @@
 {
   "module": "DocuVault",
   "moduleRoot": "src",
-  "version": "1.3.0.0",
+  "version": "1.4.0.0",
   "baselineVersion": "1.2",
   "generatedFrom": "0ac5bd46bd43ad7b176061dcb2552358b66203a6",
   "flows": [
@@ -488,6 +488,18 @@
         {
           "from": 5,
           "to": 5,
+          "cap": "recordProtection",
+          "say": "Records protection.",
+          "since": "1.4",
+          "changed": false,
+          "tech": "`.uploadDocument()` -> `.recordProtection()`  ·  main/java/com/docuvault/repository/DocumentRepository.java:L44",
+          "fromId": "main_java_com_docuvault_service_documentservice_documentservice_uploaddocument",
+          "toId": "main_java_com_docuvault_repository_documentrepository_documentrepository_recordprotection",
+          "rel": "calls"
+        },
+        {
+          "from": 5,
+          "to": 5,
           "cap": "scanUpload",
           "say": "Scans upload.",
           "since": "1.3",
@@ -549,7 +561,7 @@
         }
       ],
       "release": {
-        "version": "1.3"
+        "version": "1.4"
       }
     },
     {
