@@ -33,6 +33,7 @@ public class UserService {
         user.setPasswordHash(CipherUtil.hashPassword(plainPassword));
         userRepository.saveUser(user);
         notificationService.sendWelcomeEmail(email, displayName);
+        userRepository.recordWelcomeSent(user.getUserId());
         auditService.recordEvent(AuditEvent.EventType.USER_REGISTERED, user.getUserId(),
                 null, email);
         return user;

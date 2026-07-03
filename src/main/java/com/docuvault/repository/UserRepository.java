@@ -2,6 +2,7 @@ package com.docuvault.repository;
 
 import com.docuvault.model.User;
 
+import java.time.Instant;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,5 +29,13 @@ public class UserRepository {
     public Optional<User> findUserByEmail(String email) {
         String id = idsByEmail.get(email.toLowerCase());
         return id == null ? Optional.empty() : Optional.of(usersById.get(id));
+    }
+
+    /** Records the moment the welcome email was sent, for onboarding auditing. */
+    public void recordWelcomeSent(String userId) {
+        User user = usersById.get(userId);
+        if (user != null) {
+            user.setWelcomeSentAt(Instant.now());
+        }
     }
 }
