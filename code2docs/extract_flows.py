@@ -155,7 +155,7 @@ def make_flow(graph, labels, entry_node, transitions, module_name):
     steps.append({
         "from": 0,
         "to": entry_lane,
-        "cap": entry_node["label"].rstrip("()") or entry_node["label"],
+        "cap": c2d.short_label(entry_node["label"]),
         "say": f'You start "{title}".',
         "tech": f"Entry point `{entry_node['label']}`  ·  "
                 f"{entry_node.get('source_file','?')}:{entry_node.get('source_location','?')}",
@@ -178,7 +178,7 @@ def make_flow(graph, labels, entry_node, transitions, module_name):
         steps.append({
             "from": from_lane,
             "to": to_lane,
-            "cap": callee["label"].rstrip("()") or callee["label"],
+            "cap": c2d.short_label(callee["label"]),
             "say": say,
             "tech": f"`{caller['label']}` -> `{callee['label']}`  ·  "
                     f"{callee.get('source_file','?')}:{edge.get('source_location','?')}",
@@ -219,8 +219,12 @@ def main():
     graph = c2d.load_graph(cfg, args.graph)
     ex = cfg.get("extract", {})
     relations = ex.get("walk_relations", ["calls"])
+    # Lane names: derive from the dominant source folder of each community
+    # (deterministic, no API key); let a real graphify label file override.
+    labels = c2d.derive_community_labels(graph)
     labels_path = c2d.REPO_ROOT / "graphify-out" / ".graphify_labels.json"
-    labels = json.loads(labels_path.read_text(encoding="utf-8")) if labels_path.exists() else {}
+    if labels_path.exists():
+        labels.update(json.loads(labels_path.read_text(encoding="utf-8")))
 
     version = c2d.read_version(cfg)
     adj, indeg, outdeg = build_adjacency(graph, relations)
