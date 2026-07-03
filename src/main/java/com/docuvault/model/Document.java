@@ -13,6 +13,7 @@ public class Document {
     private long sizeBytes;
     private Instant uploadedAt;
     private Instant lastAccessedAt;
+    private Instant shreddedAt;
     private boolean shredded;
 
     public Document(String documentId, String fileName, String ownerId) {
@@ -49,6 +50,10 @@ public class Document {
     public Instant getLastAccessedAt() { return lastAccessedAt; }
 
     public void setLastAccessedAt(Instant lastAccessedAt) { this.lastAccessedAt = lastAccessedAt; }
+
+    public Instant getShreddedAt() { return shreddedAt; }
+
+    public void setShreddedAt(Instant shreddedAt) { this.shreddedAt = shreddedAt; }
 
     public boolean isShredded() { return shredded; }
 

@@ -33,6 +33,14 @@ public class DocumentRepository {
         }
     }
 
+    /** Records the moment a document was shredded, for deletion auditing. */
+    public void recordShred(String documentId) {
+        Document document = documentsById.get(documentId);
+        if (document != null) {
+            document.setShreddedAt(Instant.now());
+        }
+    }
+
     /** Snapshot of every live document, used by retention sweeps. */
     public Collection<Document> findAllDocuments() {
         return List.copyOf(documentsById.values());
