@@ -1,0 +1,26 @@
+.DS_Store
+
+# Java
+target/
+*.class
+
+# Code2Docs — machine-specific graphify sidecars (interpreter/scan-root paths)
+graphify-out/.graphify_python
+graphify-out/.graphify_root
+graphify-out/.needs_update
+
+# Code2Docs — transient pipeline working files (regenerated every run)
+code2docs/impacted.json
+code2docs/.confluence_preview/
+changed.txt
+base-graph.json
+
+# graphify: only the TOP-LEVEL graphify-out/ is the committed context layer.
+# The module-local graphify-out/ is a transient AST cache + the CI rebuild
+# target for `graphify update <module>` (copied up to the canonical location).
+src/graphify-out/
+**/graphify-out/cache/
+
+# Python
+__pycache__/
+*.pyc

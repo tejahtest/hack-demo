@@ -1,0 +1,26 @@
+{
+  "module_root": "src",
+  "module_name": "DocuVault",
+  "graph_path": "graphify-out/graph.json",
+  "flows_path": "code2docs/flows.json",
+  "confluence_map_path": "code2docs/.confluence_map.json",
+  "version_header": "VERSION.txt",
+  "interactive_out": "docs/interactive",
+  "release_notes": "docs/RELEASE_NOTES.md",
+  "interactive_base_url": "",
+  "confluence": {
+    "title_prefix": "Code2Docs · ",
+    "review_label": "code2docs-review",
+    "parent_page_id": "",
+    "mermaid_macro": "code",
+    "preview_dir": "code2docs/.confluence_preview"
+  },
+  "extract": {
+    "max_flows": 7,
+    "max_steps": 8,
+    "max_depth": 4,
+    "min_steps": 2,
+    "walk_relations": ["calls"],
+    "entry_point_patterns": ["^handle.*\\(\\)$"]
+  }
+}

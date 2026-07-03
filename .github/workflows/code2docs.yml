@@ -1,0 +1,147 @@
+name: Code2Docs
+
+# Post-merge documentation update. On merge to main, all three surfaces
+# (interactive living docs, Confluence drafts, release digest) refresh — scoped
+# to the diff — and land as a REVIEW PR. Nothing is ever pushed to main directly.
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:        # manual runs / demos
+    inputs:
+      base_sha:
+        description: "Base SHA to diff from (optional; defaults to HEAD~1)"
+        required: false
+
+# NOTE: merge_commit_sha is null for squash/rebase merges. This repo uses merge
+# commits (see history), so we diff base.sha..merge_commit_sha. If you switch to
+# a squash workflow, trigger on `push: branches: [main]` and diff before..after.
+
+jobs:
+  update:
+    # only run for a real merge, or a manual dispatch
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve module + base/head SHAs
+        id: vars
+        run: |
+          MODULE=$(python3 -c "import json;print(json.load(open('code2docs/config.json'))['module_root'])")
+          echo "module=$MODULE" >> "$GITHUB_OUTPUT"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="${{ github.event.pull_request.base.sha }}"
+            HEAD="${{ github.event.pull_request.merge_commit_sha }}"
+            PR="${{ github.event.pull_request.number }}"
+          else
+            BASE="${{ github.event.inputs.base_sha }}"
+            HEAD="${{ github.sha }}"
+            PR="manual"
+          fi
+          [ -z "$HEAD" ] && HEAD="${{ github.sha }}"
+          [ -z "$BASE" ] && BASE=$(git rev-parse "${HEAD}^" 2>/dev/null || git rev-parse HEAD~1)
+          echo "base=$BASE" >> "$GITHUB_OUTPUT"
+          echo "head=$HEAD" >> "$GITHUB_OUTPUT"
+          echo "pr=$PR"     >> "$GITHUB_OUTPUT"
+          echo "Module=$MODULE  base=$BASE  head=$HEAD  pr=$PR"
+
+      # 1. Diff — which files did this merge change?
+      - name: Changed files
+        run: |
+          git diff --name-only "${{ steps.vars.outputs.base }}" "${{ steps.vars.outputs.head }}" > changed.txt
+          echo "Changed files:"; cat changed.txt
+
+      # Snapshot the OLD context layer BEFORE we update it, for the edge diff.
+      - name: Snapshot base graph
+        run: |
+          if git cat-file -e "${{ steps.vars.outputs.base }}:graphify-out/graph.json" 2>/dev/null; then
+            git show "${{ steps.vars.outputs.base }}:graphify-out/graph.json" > base-graph.json
+            echo "base graph captured"
+          else
+            echo "no base graph (first adoption) — edge deltas will be empty"
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install graphify
+        run: pip install graphifyy
+
+      # 2. Update the CONTEXT LAYER. `graphify update <module>` writes to
+      #    <module>/graphify-out/graph.json; copy it up to the canonical
+      #    top-level graphify-out/ that config.json + map_impact.py read.
+      - name: Update code graph
+        run: |
+          graphify update "${{ steps.vars.outputs.module }}"
+          MOD_GRAPH="${{ steps.vars.outputs.module }}/graphify-out/graph.json"
+          if [ -f "$MOD_GRAPH" ]; then
+            cp "$MOD_GRAPH" graphify-out/graph.json
+            echo "copied refreshed graph -> graphify-out/graph.json"
+          else
+            echo "::warning::graphify update produced no $MOD_GRAPH; keeping committed graph"
+          fi
+
+      # 3. Map diff -> impacted flows + edge deltas, and apply the highlight plan
+      #    (new/changed steps) to flows.json so the docs render the change.
+      - name: Map impact
+        run: |
+          BASE_ARG=""
+          [ -f base-graph.json ] && BASE_ARG="--base-graph base-graph.json"
+          python code2docs/map_impact.py changed.txt $BASE_ARG --apply-flows
+
+      # 4. Re-narrate impacted flows (drift-aware agent) — best effort. The
+      #    deterministic highlights above already stand on their own; this only
+      #    improves the prose, so a missing key or agent error never blocks docs.
+      - name: Re-narrate impacted flows
+        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+        continue-on-error: true
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude -p "$(cat code2docs/redraft_prompt.md)" \
+            --permission-mode acceptEdits --output-format text || true
+
+      # 5. Re-render all three surfaces for the impacted flows
+      - name: Render interactive living docs
+        run: python code2docs/render_interactive.py --only code2docs/impacted.json
+
+      - name: Render release digest
+        run: python code2docs/render_release_digest.py changed.txt --pr "${{ steps.vars.outputs.pr }}"
+
+      - name: Sync impacted Confluence pages (draft/preview)
+        env:
+          CONFLUENCE_BASE_URL: ${{ secrets.CONFLUENCE_BASE_URL }}
+          CONFLUENCE_USER: ${{ secrets.CONFLUENCE_USER }}
+          CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
+          CONFLUENCE_SPACE_KEY: ${{ secrets.CONFLUENCE_SPACE_KEY }}
+        run: python code2docs/confluence_sync.py --only code2docs/impacted.json
+
+      # 6. Review gate: open a docs PR (never push to main)
+      - name: Open docs review PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: code2docs/pr-${{ steps.vars.outputs.pr }}
+          title: "docs: Code2Docs update for #${{ steps.vars.outputs.pr }}"
+          commit-message: "docs: Code2Docs update for #${{ steps.vars.outputs.pr }}"
+          body: |
+            Auto-generated by **Code2Docs** from the code graph. Scoped to the merge diff.
+
+            - Impacted flows re-rendered as interactive living docs (`docs/interactive/`)
+            - Release digest updated (`docs/RELEASE_NOTES.md`)
+            - Confluence pages synced as drafts (label `code2docs-review`)
+
+            Review the highlighted (new/changed) steps before merging.
+          labels: code2docs, documentation
+          add-paths: |
+            graphify-out/**
+            code2docs/flows.json
+            code2docs/.confluence_map.json
+            docs/interactive/**
+            docs/RELEASE_NOTES.md
