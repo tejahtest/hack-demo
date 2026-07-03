@@ -1,7 +1,7 @@
 {
   "module": "DocuVault",
   "moduleRoot": "src",
-  "version": "1.2.0.0",
+  "version": "1.3.0.0",
   "baselineVersion": "1.2",
   "generatedFrom": "0ac5bd46bd43ad7b176061dcb2552358b66203a6",
   "flows": [
@@ -33,6 +33,11 @@
           "name": "Policy",
           "emoji": "🛡️",
           "community": 3
+        },
+        {
+          "name": "Document",
+          "emoji": "📄",
+          "community": 0
         }
       ],
       "steps": [
@@ -74,6 +79,18 @@
           "tech": "`.handleOpenDocument()` -> `.openDocument()`  ·  main/java/com/docuvault/service/DocumentService.java:L26",
           "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleopendocument",
           "toId": "main_java_com_docuvault_service_documentservice_documentservice_opendocument",
+          "rel": "calls"
+        },
+        {
+          "from": 4,
+          "to": 4,
+          "cap": "touchLastAccessed",
+          "say": "Touch last accessed.",
+          "since": "1.3",
+          "changed": false,
+          "tech": "`.openDocument()` -> `.touchLastAccessed()`  ·  main/java/com/docuvault/repository/DocumentRepository.java:L56",
+          "fromId": "main_java_com_docuvault_service_documentservice_documentservice_opendocument",
+          "toId": "main_java_com_docuvault_repository_documentrepository_documentrepository_touchlastaccessed",
           "rel": "calls"
         },
         {
@@ -126,7 +143,10 @@
           "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_logwarning",
           "rel": "calls"
         }
-      ]
+      ],
+      "release": {
+        "version": "1.3"
+      }
     },
     {
       "id": "revoke-access",
@@ -417,6 +437,11 @@
           "name": "EncryptionKey",
           "emoji": "🔐",
           "community": 4
+        },
+        {
+          "name": "Document",
+          "emoji": "📄",
+          "community": 0
         }
       ],
       "steps": [
@@ -458,6 +483,18 @@
           "tech": "`.handleUploadDocument()` -> `.uploadDocument()`  ·  main/java/com/docuvault/service/DocumentService.java:L19",
           "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleuploaddocument",
           "toId": "main_java_com_docuvault_service_documentservice_documentservice_uploaddocument",
+          "rel": "calls"
+        },
+        {
+          "from": 5,
+          "to": 5,
+          "cap": "scanUpload",
+          "say": "Scans upload.",
+          "since": "1.3",
+          "changed": false,
+          "tech": "`.uploadDocument()` -> `.scanUpload()`  ·  main/java/com/docuvault/security/ThreatScanner.java:L39",
+          "fromId": "main_java_com_docuvault_service_documentservice_documentservice_uploaddocument",
+          "toId": "main_java_com_docuvault_security_threatscanner_threatscanner_scanupload",
           "rel": "calls"
         },
         {
@@ -510,7 +547,10 @@
           "toId": "main_java_com_docuvault_repository_keystorerepository_keystorerepository_storekey",
           "rel": "calls"
         }
-      ]
+      ],
+      "release": {
+        "version": "1.3"
+      }
     },
     {
       "id": "register-user",
@@ -890,6 +930,290 @@
           "rel": "calls"
         }
       ]
+    },
+    {
+      "id": "rename-document",
+      "title": "Rename document",
+      "module": "DocuVault",
+      "entry": {
+        "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handlerenamedocument",
+        "label": ".handleRenameDocument()",
+        "file": "main/java/com/docuvault/api/DocumentController.java"
+      },
+      "actors": [
+        {
+          "name": "You",
+          "emoji": "🧑"
+        },
+        {
+          "name": ".logInfo",
+          "emoji": "📝",
+          "community": 8
+        },
+        {
+          "name": "Document",
+          "emoji": "📄",
+          "community": 0
+        },
+        {
+          "name": "Policy",
+          "emoji": "🛡️",
+          "community": 3
+        }
+      ],
+      "steps": [
+        {
+          "from": 0,
+          "to": 1,
+          "cap": "handleRenameDocument",
+          "say": "You start \"Rename document\".",
+          "tech": "Entry point `.handleRenameDocument()`  ·  main/java/com/docuvault/api/DocumentController.java:L30",
+          "fromId": "__user__",
+          "toId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handlerenamedocument",
+          "rel": "triggers"
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": "getFileName",
+          "say": "Document: looks up file name.",
+          "tech": "`.handleRenameDocument()` -> `.getFileName()`  ·  main/java/com/docuvault/model/Document.java:L34",
+          "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handlerenamedocument",
+          "toId": "main_java_com_docuvault_model_document_document_getfilename",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": "logInfo",
+          "say": "Writes an info log line.",
+          "tech": "`.handleRenameDocument()` -> `.logInfo()`  ·  main/java/com/docuvault/util/VaultLogger.java:L31",
+          "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handlerenamedocument",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": "emit",
+          "say": "Emits.",
+          "tech": "`.logInfo()` -> `.emit()`  ·  main/java/com/docuvault/util/VaultLogger.java:L11",
+          "fromId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_emit",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": "renameDocument",
+          "say": "Document: rename document.",
+          "tech": "`.handleRenameDocument()` -> `.renameDocument()`  ·  main/java/com/docuvault/service/DocumentService.java:L33",
+          "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handlerenamedocument",
+          "toId": "main_java_com_docuvault_service_documentservice_documentservice_renamedocument",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "cap": "checkAccess",
+          "say": "Checks access.",
+          "tech": "`.renameDocument()` -> `.checkAccess()`  ·  main/java/com/docuvault/service/AccessService.java:L65",
+          "fromId": "main_java_com_docuvault_service_documentservice_documentservice_renamedocument",
+          "toId": "main_java_com_docuvault_service_accessservice_accessservice_checkaccess",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "cap": "evaluatePolicy",
+          "say": "Policy: evaluates policy.",
+          "tech": "`.checkAccess()` -> `.evaluatePolicy()`  ·  main/java/com/docuvault/service/PolicyService.java:L64",
+          "fromId": "main_java_com_docuvault_service_accessservice_accessservice_checkaccess",
+          "toId": "main_java_com_docuvault_service_policyservice_policyservice_evaluatepolicy",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 3,
+          "to": 3,
+          "cap": "findPolicyForUser",
+          "say": "Looks up policy for user.",
+          "tech": "`.evaluatePolicy()` -> `.findPolicyForUser()`  ·  main/java/com/docuvault/repository/PolicyRepository.java:L21",
+          "fromId": "main_java_com_docuvault_service_policyservice_policyservice_evaluatepolicy",
+          "toId": "main_java_com_docuvault_repository_policyrepository_policyrepository_findpolicyforuser",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 3,
+          "to": 3,
+          "cap": "getPermission",
+          "say": "Looks up permission.",
+          "tech": "`.evaluatePolicy()` -> `.getPermission()`  ·  main/java/com/docuvault/model/Policy.java:L25",
+          "fromId": "main_java_com_docuvault_service_policyservice_policyservice_evaluatepolicy",
+          "toId": "main_java_com_docuvault_model_policy_policy_getpermission",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        }
+      ],
+      "release": {
+        "version": "1.3"
+      }
+    },
+    {
+      "id": "retention-sweep",
+      "title": "Retention sweep",
+      "module": "DocuVault",
+      "entry": {
+        "id": "main_java_com_docuvault_api_maintenancecontroller_maintenancecontroller_handleretentionsweep",
+        "label": ".handleRetentionSweep()",
+        "file": "main/java/com/docuvault/api/MaintenanceController.java"
+      },
+      "actors": [
+        {
+          "name": "You",
+          "emoji": "🧑"
+        },
+        {
+          "name": ".logInfo",
+          "emoji": "📝",
+          "community": 8
+        },
+        {
+          "name": "Document",
+          "emoji": "📄",
+          "community": 0
+        },
+        {
+          "name": "EncryptionKey",
+          "emoji": "🔐",
+          "community": 2
+        }
+      ],
+      "steps": [
+        {
+          "from": 0,
+          "to": 1,
+          "cap": "handleRetentionSweep",
+          "say": "You start \"Retention sweep\".",
+          "tech": "Entry point `.handleRetentionSweep()`  ·  main/java/com/docuvault/api/MaintenanceController.java:L16",
+          "fromId": "__user__",
+          "toId": "main_java_com_docuvault_api_maintenancecontroller_maintenancecontroller_handleretentionsweep",
+          "rel": "triggers"
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": "logInfo",
+          "say": "Writes an info log line.",
+          "tech": "`.handleRetentionSweep()` -> `.logInfo()`  ·  main/java/com/docuvault/util/VaultLogger.java:L17",
+          "fromId": "main_java_com_docuvault_api_maintenancecontroller_maintenancecontroller_handleretentionsweep",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": "emit",
+          "say": "Emits.",
+          "tech": "`.logInfo()` -> `.emit()`  ·  main/java/com/docuvault/util/VaultLogger.java:L11",
+          "fromId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
+          "toId": "main_java_com_docuvault_util_vaultlogger_vaultlogger_emit",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "cap": "sweepExpiredDocuments",
+          "say": "Sweep expired documents.",
+          "tech": "`.handleRetentionSweep()` -> `.sweepExpiredDocuments()`  ·  main/java/com/docuvault/service/RetentionService.java:L18",
+          "fromId": "main_java_com_docuvault_api_maintenancecontroller_maintenancecontroller_handleretentionsweep",
+          "toId": "main_java_com_docuvault_service_retentionservice_retentionservice_sweepexpireddocuments",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": "findAllDocuments",
+          "say": "Document: looks up all documents.",
+          "tech": "`.sweepExpiredDocuments()` -> `.findAllDocuments()`  ·  main/java/com/docuvault/repository/DocumentRepository.java:L37",
+          "fromId": "main_java_com_docuvault_service_retentionservice_retentionservice_sweepexpireddocuments",
+          "toId": "main_java_com_docuvault_repository_documentrepository_documentrepository_findalldocuments",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": "getUploadedAt",
+          "say": "Document: looks up uploaded at.",
+          "tech": "`.sweepExpiredDocuments()` -> `.getUploadedAt()`  ·  main/java/com/docuvault/model/Document.java:L38",
+          "fromId": "main_java_com_docuvault_service_retentionservice_retentionservice_sweepexpireddocuments",
+          "toId": "main_java_com_docuvault_model_document_document_getuploadedat",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "cap": "shredExpired",
+          "say": "Document: shred expired.",
+          "tech": "`.sweepExpiredDocuments()` -> `.shredExpired()`  ·  main/java/com/docuvault/service/RetentionService.java:L39",
+          "fromId": "main_java_com_docuvault_service_retentionservice_retentionservice_sweepexpireddocuments",
+          "toId": "main_java_com_docuvault_service_retentionservice_retentionservice_shredexpired",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "cap": "destroyKey",
+          "say": "Destroys key.",
+          "tech": "`.shredExpired()` -> `.destroyKey()`  ·  main/java/com/docuvault/crypto/KeyManager.java:L50",
+          "fromId": "main_java_com_docuvault_service_retentionservice_retentionservice_shredexpired",
+          "toId": "main_java_com_docuvault_crypto_keymanager_keymanager_destroykey",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "cap": "deleteKey",
+          "say": "EncryptionKey: deletes key.",
+          "tech": "`.destroyKey()` -> `.deleteKey()`  ·  main/java/com/docuvault/repository/KeyStoreRepository.java:L50",
+          "fromId": "main_java_com_docuvault_crypto_keymanager_keymanager_destroykey",
+          "toId": "main_java_com_docuvault_repository_keystorerepository_keystorerepository_deletekey",
+          "rel": "calls",
+          "since": "1.3",
+          "changed": false
+        }
+      ],
+      "release": {
+        "version": "1.3"
+      }
     }
   ]
 }
