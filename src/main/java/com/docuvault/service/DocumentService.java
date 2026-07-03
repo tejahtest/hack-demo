@@ -6,6 +6,7 @@ import com.docuvault.model.AuditEvent;
 import com.docuvault.model.Document;
 import com.docuvault.model.Policy;
 import com.docuvault.repository.DocumentRepository;
+import com.docuvault.security.ThreatScanner;
 import com.docuvault.util.InputValidator;
 
 import java.util.UUID;
@@ -18,6 +19,7 @@ public class DocumentService {
     private final KeyManager keyManager;
     private final AccessService accessService;
     private final AuditService auditService;
+    private final ThreatScanner threatScanner = new ThreatScanner();
 
     public DocumentService(DocumentRepository documentRepository,
                            EncryptionEngine encryptionEngine,
@@ -34,6 +36,7 @@ public class DocumentService {
     /** Validates, encrypts, and stores an incoming file; the vault never keeps plaintext. */
     public Document uploadDocument(String ownerId, String fileName, byte[] rawContent) {
         InputValidator.validateFileName(fileName);
+        threatScanner.scanUpload(fileName, rawContent);
         Document document = new Document(UUID.randomUUID().toString(), fileName, ownerId);
         byte[] cipherText = encryptionEngine.encryptDocument(document, rawContent);
         document.setEncryptedContent(cipherText);
