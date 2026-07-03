@@ -109,6 +109,13 @@ jobs:
           [ -f base-graph.json ] && BASE_ARG="--base-graph base-graph.json"
           python code2docs/map_impact.py changed.txt $BASE_ARG --apply-flows
 
+      # 3b. Discover flows for NEW entry points this merge introduced (e.g. a
+      #     new handle*() controller method) and append them to flows.json +
+      #     impacted.json, tagged "new this release". Existing flows and their
+      #     highlights are left untouched.
+      - name: Discover new flows
+        run: python code2docs/extract_flows.py --merge-new --impacted code2docs/impacted.json
+
       # 4. Re-narrate impacted flows (drift-aware agent) — best effort. The
       #    deterministic highlights above already stand on their own; this only
       #    improves the prose, so a missing key or agent error never blocks docs.
