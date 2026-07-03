@@ -129,7 +129,7 @@ _VERB = {
     "record": "Records", "store": "Stores", "retrieve": "Fetches",
     "append": "Appends", "find": "Looks up", "validate": "Validates",
     "scrub": "Scrubs", "deliver": "Delivers", "mark": "Marks",
-    "handle": "Handles", "emit": "Emits",
+    "handle": "Handles", "emit": "Emits", "scan": "Scans", "matches": "Checks",
 }
 
 # First-word verb -> gerund, for a flow title.
@@ -210,6 +210,7 @@ _EMOJI_RULES = [
     (("repository", "store", "storage"), "🗄️"),
     (("audit", "compliance", "report"), "📋"),
     (("notification", "email", "invite"), "✉️"),
+    (("threat", "scan", "malware"), "🦠"),
     (("policy", "access", "permission"), "🛡️"),
     (("controller", "api"), "⚙️"),
     (("service", "logic"), "🧠"),
