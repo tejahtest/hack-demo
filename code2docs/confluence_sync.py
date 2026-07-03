@@ -29,6 +29,7 @@ import html
 import json
 import os
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -136,8 +137,23 @@ class Confluence:
         url = path if path.startswith("http") else f"{self.base}/rest/api{path}"
         data = json.dumps(payload).encode() if payload is not None else None
         req = urllib.request.Request(url, data=data, headers=self.headers, method=method)
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            return json.loads(resp.read().decode() or "{}")
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.loads(resp.read().decode() or "{}")
+        except urllib.error.HTTPError as e:
+            # Surface Confluence's error message (e.g. "A page with this title
+            # already exists") instead of a bare status code.
+            detail = e.read().decode(errors="replace")[:500]
+            print(f"  ! {method} {path} -> HTTP {e.code}: {detail}")
+            raise
+
+    def find_by_title(self, title):
+        """Page in this space with exactly this title, or None. Lets the sync
+        adopt pages that exist in Confluence but are missing from the map."""
+        q = urllib.parse.urlencode({"spaceKey": self.space, "title": title})
+        res = self._req("GET", f"/content?{q}")
+        results = res.get("results", [])
+        return results[0] if results else None
 
     def get_page(self, page_id):
         return self._req("GET", f"/content/{page_id}?expand=version")
@@ -218,6 +234,16 @@ def main():
         title = page_title(f, doc, ccfg)
         body = storage_body(f, doc, ccfg)
         pid = cmap.get(f["id"])
+        if not pid:
+            # The map can lag reality (it only advances on main when a docs
+            # review PR merges). Confluence titles are unique per space, so a
+            # blind create of an existing page fails with HTTP 400 — adopt the
+            # existing page instead.
+            existing = api.find_by_title(title)
+            if existing:
+                pid = existing["id"]
+                cmap[f["id"]] = pid
+                print(f"  adopted {f['id']} -> existing page {pid} (matched by title)")
         if pid:
             cur = api.get_page(pid)
             api.update(pid, title, body, cur["version"]["number"] + 1)
