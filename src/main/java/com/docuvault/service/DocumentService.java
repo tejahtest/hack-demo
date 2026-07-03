@@ -78,6 +78,7 @@ public class DocumentService {
     public void deleteDocument(String documentId, String ownerId) {
         Document document = documentRepository.findDocument(documentId);
         keyManager.destroyKey(document.getKeyId());
+        documentRepository.recordShred(documentId);
         documentRepository.removeDocument(documentId);
         auditService.recordEvent(AuditEvent.EventType.DOCUMENT_DELETED, ownerId,
                 documentId, document.getFileName());
