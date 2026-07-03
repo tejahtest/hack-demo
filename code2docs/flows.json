@@ -713,6 +713,11 @@
           "name": "VaultLogger",
           "emoji": "📄",
           "community": 7
+        },
+        {
+          "name": "Document",
+          "emoji": "📄",
+          "community": 0
         }
       ],
       "steps": [
@@ -734,6 +739,18 @@
           "tech": "`.handleDeleteDocument()` -> `.deleteDocument()`  ·  main/java/com/docuvault/service/DocumentService.java:L32",
           "fromId": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handledeletedocument",
           "toId": "main_java_com_docuvault_service_documentservice_documentservice_deletedocument",
+          "rel": "calls"
+        },
+        {
+          "from": 4,
+          "to": 4,
+          "cap": "recordShred",
+          "say": "Records shred.",
+          "since": "1.3",
+          "changed": false,
+          "tech": "`.deleteDocument()` -> `.recordShred()`  ·  main/java/com/docuvault/repository/DocumentRepository.java:L81",
+          "fromId": "main_java_com_docuvault_service_documentservice_documentservice_deletedocument",
+          "toId": "main_java_com_docuvault_repository_documentrepository_documentrepository_recordshred",
           "rel": "calls"
         },
         {
@@ -806,7 +823,10 @@
           "toId": "main_java_com_docuvault_model_document_document_isshredded",
           "rel": "calls"
         }
-      ]
+      ],
+      "release": {
+        "version": "1.3"
+      }
     },
     {
       "id": "generate-report",
