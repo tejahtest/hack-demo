@@ -134,7 +134,11 @@ jobs:
       - name: Render release digest
         run: python code2docs/render_release_digest.py changed.txt --pr "${{ steps.vars.outputs.pr }}"
 
+      # Best effort, like the re-narrate step: Confluence is an external
+      # publish target — a bad token or duplicate title must never block the
+      # Pages deploy or the docs review PR.
       - name: Sync impacted Confluence pages (draft/preview)
+        continue-on-error: true
         env:
           CONFLUENCE_BASE_URL: ${{ secrets.CONFLUENCE_BASE_URL }}
           CONFLUENCE_USER: ${{ secrets.CONFLUENCE_USER }}
