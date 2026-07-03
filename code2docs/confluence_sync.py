@@ -137,20 +137,26 @@ class Confluence:
         url = path if path.startswith("http") else f"{self.base}/rest/api{path}"
         data = json.dumps(payload).encode() if payload is not None else None
         req = urllib.request.Request(url, data=data, headers=self.headers, method=method)
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            return json.loads(resp.read().decode() or "{}")
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.loads(resp.read().decode() or "{}")
+        except urllib.error.HTTPError as e:
+            # Surface Confluence's error message (e.g. "A page with this title
+            # already exists") instead of a bare status code.
+            detail = e.read().decode(errors="replace")[:500]
+            print(f"  ! {method} {path} -> HTTP {e.code}: {detail}")
+            raise
+
+    def find_by_title(self, title):
+        """Page in this space with exactly this title, or None. Lets the sync
+        adopt pages that exist in Confluence but are missing from the map."""
+        q = urllib.parse.urlencode({"spaceKey": self.space, "title": title})
+        res = self._req("GET", f"/content?{q}")
+        results = res.get("results", [])
+        return results[0] if results else None
 
     def get_page(self, page_id):
         return self._req("GET", f"/content/{page_id}?expand=version")
-
-    def find_by_title(self, title):
-        """Existing page with this title in the space, or None. Lets a run
-        whose page map is stale (docs PR not merged yet) update instead of
-        creating a duplicate title, which Confluence rejects with a 400."""
-        q = urllib.parse.urlencode({"spaceKey": self.space, "title": title,
-                                    "expand": "version"})
-        results = self._req("GET", f"/content?{q}").get("results", [])
-        return results[0] if results else None
 
     def create(self, title, body, parent_id=None):
         payload = {"type": "page", "title": title, "space": {"key": self.space},
@@ -224,44 +230,33 @@ def main():
     api = Confluence(base, user, token, space)
     parent = ccfg.get("parent_page_id") or None
     label = ccfg.get("review_label", "code2docs-review")
-    synced, failed = 0, 0
     for f in targets:
         title = page_title(f, doc, ccfg)
         body = storage_body(f, doc, ccfg)
-        try:
-            pid = cmap.get(f["id"])
-            if not pid:
-                # Self-heal a stale map: the page may already exist from a run
-                # whose docs PR (carrying the map update) was never merged.
-                existing = api.find_by_title(title)
-                if existing:
-                    pid = existing["id"]
-                    cmap[f["id"]] = pid
-                    print(f"  map healed: {f['id']} -> existing page {pid}")
-            if pid:
-                cur = api.get_page(pid)
-                api.update(pid, title, body, cur["version"]["number"] + 1)
-                print(f"  updated {f['id']} -> page {pid}")
-            else:
-                created = api.create(title, body, parent)
-                pid = created["id"]
+        pid = cmap.get(f["id"])
+        if not pid:
+            # The map can lag reality (it only advances on main when a docs
+            # review PR merges). Confluence titles are unique per space, so a
+            # blind create of an existing page fails with HTTP 400 — adopt the
+            # existing page instead.
+            existing = api.find_by_title(title)
+            if existing:
+                pid = existing["id"]
                 cmap[f["id"]] = pid
-                print(f"  created {f['id']} -> page {pid}")
-            api.add_label(pid, label)
-            synced += 1
-        except urllib.error.HTTPError as e:
-            failed += 1
-            try:
-                detail = e.read().decode("utf-8", errors="replace")[:300]
-            except Exception:
-                detail = ""
-            print(f"::warning::Confluence sync failed for {f['id']}: "
-                  f"HTTP {e.code} {e.reason} {detail}")
+                print(f"  adopted {f['id']} -> existing page {pid} (matched by title)")
+        if pid:
+            cur = api.get_page(pid)
+            api.update(pid, title, body, cur["version"]["number"] + 1)
+            print(f"  updated {f['id']} -> page {pid}")
+        else:
+            created = api.create(title, body, parent)
+            pid = created["id"]
+            cmap[f["id"]] = pid
+            print(f"  created {f['id']} -> page {pid}")
+        api.add_label(pid, label)
 
-    # Persist whatever we learned (created ids, healed entries) even if some
-    # pages failed, so the next run doesn't repeat the same create attempts.
     map_path.write_text(json.dumps(cmap, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"\nSynced {synced}/{len(targets)} page(s), {failed} failed. Map -> {map_path}")
+    print(f"\nSynced {len(targets)} page(s). Map -> {map_path}")
 
 
 if __name__ == "__main__":
