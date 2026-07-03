@@ -188,8 +188,8 @@ PLAYER_JS = r"""
     if(s){ say.textContent = s.say || s.cap; tech.textContent = s.tech || ''; }
     else { say.textContent = FLOW.description || ('Press Play to walk through "'+FLOW.title+'".'); tech.textContent=''; }
     pills.innerHTML='';
-    if(s && s.since) addPill('added','+ new in '+s.since);
-    if(s && s.changed) addPill('changed','~ changed this release');
+    if((REL.addedSteps||[]).indexOf(cur)>=0)   addPill('added','+ new in '+(REL.version||''));
+    if((REL.changedSteps||[]).indexOf(cur)>=0) addPill('changed','~ changed in '+(REL.version||''));
     counter.textContent = (cur<0?0:cur+1)+' / '+steps.length;
     btnPrev.disabled = cur<0; btnNext.disabled = cur>=steps.length-1;
   }
@@ -215,29 +215,34 @@ PLAYER_JS = r"""
 """
 
 
-def _release_for(flow: dict) -> dict:
+def _release_for(flow: dict, version: str) -> dict:
     """Extract the release-highlight descriptor from a flow (set by the update
-    path). changedSteps / addedSteps are step indices; version is the tag."""
+    path), SCOPED to `version`. changedSteps / addedSteps are the indices of the
+    steps that arrived or changed in the current release only, so a highlight
+    from an earlier release no longer lights up. version is the tag."""
     changed, added = [], []
     for i, s in enumerate(flow.get("steps", [])):
-        if s.get("changed"):
+        if c2d.step_changed_in(s, version):
             changed.append(i)
-        if s.get("since"):
+        if c2d.step_new_in(s, version):
             added.append(i)
     rel = dict(flow.get("release", {}))
-    rel.setdefault("changedSteps", changed)
-    rel.setdefault("addedSteps", added)
+    rel["changedSteps"] = changed
+    rel["addedSteps"] = added
+    rel.setdefault("version", version)
     return rel
 
 
 def render_flow_page(flow: dict, doc: dict) -> str:
+    sv = c2d.short_version(doc.get("version", ""))
+    rel_desc = _release_for(flow, sv)
     data = json.dumps(flow, ensure_ascii=False)
-    rel = json.dumps(_release_for(flow), ensure_ascii=False)
+    rel = json.dumps(rel_desc, ensure_ascii=False)
     title = html.escape(flow.get("title", flow["id"]))
     module = html.escape(flow.get("module", doc.get("module", "")))
     version = html.escape(doc.get("version", ""))
     desc = html.escape(flow.get("description", ""))
-    changed_count = len(_release_for(flow).get("changedSteps", [])) + len(_release_for(flow).get("addedSteps", []))
+    changed_count = len(rel_desc.get("changedSteps", [])) + len(rel_desc.get("addedSteps", []))
     rel_label = (f"Highlight what changed in v{version}"
                  if changed_count else "No release changes recorded")
     rel_disabled = "" if changed_count else "disabled"
@@ -288,13 +293,15 @@ def render_flow_page(flow: dict, doc: dict) -> str:
 def render_index(doc: dict, flows: list[dict]) -> str:
     module = html.escape(doc.get("module", "Module"))
     version = html.escape(doc.get("version", ""))
+    sv = c2d.short_version(doc.get("version", ""))
     cards = []
     for f in flows:
         title = html.escape(f.get("title", f["id"]))
         desc = html.escape(f.get("description", "")) or \
             f"{len(f['steps'])} steps across {len(f['actors'])-1} components."
         lanes = "".join(a.get("emoji", "") for a in f.get("actors", []))
-        n_changed = len(_release_for(f).get("changedSteps", [])) + len(_release_for(f).get("addedSteps", []))
+        rel_desc = _release_for(f, sv)
+        n_changed = len(rel_desc.get("changedSteps", [])) + len(rel_desc.get("addedSteps", []))
         chg = f'<span class="badge" style="border-color:#ffb020;color:#ffb020">{n_changed} changed</span>' if n_changed else ""
         cards.append(f"""<a class="card flowcard" href="{f['id']}.html">
           <h3>{title}</h3><p>{desc}</p>

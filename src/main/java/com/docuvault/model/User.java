@@ -10,6 +10,7 @@ public class User {
     private String displayName;
     private String passwordHash;
     private Instant registeredAt;
+    private Instant welcomeSentAt;
     private boolean active;
 
     public User(String userId, String email, String displayName) {
@@ -31,6 +32,10 @@ public class User {
     public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
 
     public Instant getRegisteredAt() { return registeredAt; }
+
+    public Instant getWelcomeSentAt() { return welcomeSentAt; }
+
+    public void setWelcomeSentAt(Instant welcomeSentAt) { this.welcomeSentAt = welcomeSentAt; }
 
     public boolean isActive() { return active; }
 
