@@ -10,7 +10,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_accesscontroller",
-      "community": 7,
+      "community": 3,
       "norm_label": "accesscontroller.java"
     },
     {
@@ -20,7 +20,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_accesscontroller_accesscontroller",
-      "community": 7,
+      "community": 3,
       "norm_label": "accesscontroller"
     },
     {
@@ -30,7 +30,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_accesscontroller_accesscontroller_accesscontroller",
-      "community": 7,
+      "community": 3,
       "norm_label": ".accesscontroller()"
     },
     {
@@ -40,7 +40,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlesharedocument",
-      "community": 7,
+      "community": 3,
       "norm_label": ".handlesharedocument()"
     },
     {
@@ -50,7 +50,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_accesscontroller_java_string",
-      "community": 7,
+      "community": 3,
       "norm_label": "string"
     },
     {
@@ -60,7 +60,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_accesscontroller_accesscontroller_handlerevokeaccess",
-      "community": 7,
+      "community": 3,
       "norm_label": ".handlerevokeaccess()"
     },
     {
@@ -70,7 +70,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_auditcontroller",
-      "community": 6,
+      "community": 1,
       "norm_label": "auditcontroller.java"
     },
     {
@@ -80,7 +80,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_auditcontroller_auditcontroller",
-      "community": 6,
+      "community": 1,
       "norm_label": "auditcontroller"
     },
     {
@@ -90,7 +90,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_auditcontroller_auditcontroller_auditcontroller",
-      "community": 6,
+      "community": 1,
       "norm_label": ".auditcontroller()"
     },
     {
@@ -100,7 +100,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_auditcontroller_auditcontroller_handlegeneratereport",
-      "community": 6,
+      "community": 1,
       "norm_label": ".handlegeneratereport()"
     },
     {
@@ -110,7 +110,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_auditcontroller_java_instant",
-      "community": 6,
+      "community": 1,
       "norm_label": "instant"
     },
     {
@@ -120,7 +120,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_auditcontroller_java_string",
-      "community": 6,
+      "community": 1,
       "norm_label": "string"
     },
     {
@@ -130,7 +130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_documentcontroller",
-      "community": 5,
+      "community": 3,
       "norm_label": "documentcontroller.java"
     },
     {
@@ -140,7 +140,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller",
-      "community": 8,
+      "community": 7,
       "norm_label": "documentcontroller"
     },
     {
@@ -150,7 +150,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller_documentcontroller",
-      "community": 8,
+      "community": 7,
       "norm_label": ".documentcontroller()"
     },
     {
@@ -160,7 +160,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleuploaddocument",
-      "community": 8,
+      "community": 7,
       "norm_label": ".handleuploaddocument()"
     },
     {
@@ -170,7 +170,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_documentcontroller_java_string",
-      "community": 8,
+      "community": 7,
       "norm_label": "string"
     },
     {
@@ -180,7 +180,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handleopendocument",
-      "community": 8,
+      "community": 7,
       "norm_label": ".handleopendocument()"
     },
     {
@@ -190,7 +190,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handlerenamedocument",
-      "community": 8,
+      "community": 7,
       "norm_label": ".handlerenamedocument()"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_documentcontroller_documentcontroller_handledeletedocument",
-      "community": 8,
+      "community": 7,
       "norm_label": ".handledeletedocument()"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_maintenancecontroller",
-      "community": 6,
+      "community": 3,
       "norm_label": "maintenancecontroller.java"
     },
     {
@@ -220,7 +220,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_maintenancecontroller_maintenancecontroller",
-      "community": 6,
+      "community": 3,
       "norm_label": "maintenancecontroller"
     },
     {
@@ -230,7 +230,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_maintenancecontroller_maintenancecontroller_maintenancecontroller",
-      "community": 6,
+      "community": 3,
       "norm_label": ".maintenancecontroller()"
     },
     {
@@ -240,7 +240,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_maintenancecontroller_maintenancecontroller_handleretentionsweep",
-      "community": 8,
+      "community": 3,
       "norm_label": ".handleretentionsweep()"
     },
     {
@@ -250,7 +250,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_usercontroller",
-      "community": 1,
+      "community": 4,
       "norm_label": "usercontroller.java"
     },
     {
@@ -260,7 +260,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_usercontroller_usercontroller",
-      "community": 1,
+      "community": 4,
       "norm_label": "usercontroller"
     },
     {
@@ -270,7 +270,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_usercontroller_usercontroller_usercontroller",
-      "community": 1,
+      "community": 4,
       "norm_label": ".usercontroller()"
     },
     {
@@ -280,7 +280,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_usercontroller_usercontroller_handleregisteruser",
-      "community": 1,
+      "community": 4,
       "norm_label": ".handleregisteruser()"
     },
     {
@@ -290,7 +290,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_api_usercontroller_java_string",
-      "community": 1,
+      "community": 4,
       "norm_label": "string"
     },
     {
@@ -300,7 +300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_cipherutil",
-      "community": 5,
+      "community": 6,
       "norm_label": "cipherutil.java"
     },
     {
@@ -310,7 +310,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_cipherutil_cipherutil",
-      "community": 5,
+      "community": 6,
       "norm_label": "cipherutil"
     },
     {
@@ -320,7 +320,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "securerandom",
-      "community": 5,
+      "community": 6,
       "norm_label": "securerandom"
     },
     {
@@ -330,7 +330,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_cipherutil_cipherutil_cipherutil",
-      "community": 5,
+      "community": 6,
       "norm_label": ".cipherutil()"
     },
     {
@@ -340,7 +340,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_cipherutil_cipherutil_generatekeymaterial",
-      "community": 2,
+      "community": 5,
       "norm_label": ".generatekeymaterial()"
     },
     {
@@ -350,7 +350,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_cipherutil_cipherutil_applyaescipher",
-      "community": 5,
+      "community": 6,
       "norm_label": ".applyaescipher()"
     },
     {
@@ -360,7 +360,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_cipherutil_cipherutil_stripaescipher",
-      "community": 5,
+      "community": 6,
       "norm_label": ".stripaescipher()"
     },
     {
@@ -370,7 +370,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_cipherutil_cipherutil_hashpassword",
-      "community": 5,
+      "community": 6,
       "norm_label": ".hashpassword()"
     },
     {
@@ -380,7 +380,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_cipherutil_java_string",
-      "community": 5,
+      "community": 6,
       "norm_label": "string"
     },
     {
@@ -390,7 +390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_encryptionengine",
-      "community": 2,
+      "community": 5,
       "norm_label": "encryptionengine.java"
     },
     {
@@ -400,7 +400,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_encryptionengine_encryptionengine",
-      "community": 2,
+      "community": 3,
       "norm_label": "encryptionengine"
     },
     {
@@ -410,7 +410,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_encryptionengine_encryptionengine_encryptionengine",
-      "community": 2,
+      "community": 3,
       "norm_label": ".encryptionengine()"
     },
     {
@@ -420,7 +420,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_encryptionengine_encryptionengine_encryptdocument",
-      "community": 0,
+      "community": 6,
       "norm_label": ".encryptdocument()"
     },
     {
@@ -430,7 +430,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_encryptionengine_encryptionengine_decryptdocument",
-      "community": 2,
+      "community": 6,
       "norm_label": ".decryptdocument()"
     },
     {
@@ -440,7 +440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_keymanager",
-      "community": 2,
+      "community": 3,
       "norm_label": "keymanager.java"
     },
     {
@@ -450,7 +450,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_keymanager_keymanager",
-      "community": 2,
+      "community": 3,
       "norm_label": "keymanager"
     },
     {
@@ -460,7 +460,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_keymanager_keymanager_keymanager",
-      "community": 2,
+      "community": 5,
       "norm_label": ".keymanager()"
     },
     {
@@ -470,7 +470,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_keymanager_keymanager_generatekey",
-      "community": 2,
+      "community": 5,
       "norm_label": ".generatekey()"
     },
     {
@@ -480,7 +480,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_keymanager_java_string",
-      "community": 2,
+      "community": 5,
       "norm_label": "string"
     },
     {
@@ -490,7 +490,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_keymanager_keymanager_retrievekey",
-      "community": 2,
+      "community": 5,
       "norm_label": ".retrievekey()"
     },
     {
@@ -500,7 +500,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "main_java_com_docuvault_crypto_keymanager_keymanager_rotatekey",
-      "community": 2,
+      "community": 5,
       "norm_label": ".rotatekey()"
     },
     {
@@ -520,7 +520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant",
-      "community": 7,
+      "community": 8,
       "norm_label": "accessgrant.java"
     },
     {
@@ -530,7 +530,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_accessgrant",
-      "community": 7,
+      "community": 8,
       "norm_label": "accessgrant"
     },
     {
@@ -540,7 +540,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_java_string",
-      "community": 7,
+      "community": 8,
       "norm_label": "string"
     },
     {
@@ -550,7 +550,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_java_instant",
-      "community": 7,
+      "community": 8,
       "norm_label": "instant"
     },
     {
@@ -560,7 +560,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_accessgrant_accessgrant",
-      "community": 7,
+      "community": 8,
       "norm_label": ".accessgrant()"
     },
     {
@@ -570,7 +570,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_accessgrant_getgrantid",
-      "community": 7,
+      "community": 8,
       "norm_label": ".getgrantid()"
     },
     {
@@ -580,7 +580,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_accessgrant_getdocumentid",
-      "community": 7,
+      "community": 8,
       "norm_label": ".getdocumentid()"
     },
     {
@@ -590,7 +590,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_accessgrant_getgrantorid",
-      "community": 7,
+      "community": 8,
       "norm_label": ".getgrantorid()"
     },
     {
@@ -600,7 +600,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_accessgrant_getgranteeid",
-      "community": 7,
+      "community": 8,
       "norm_label": ".getgranteeid()"
     },
     {
@@ -610,7 +610,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_accessgrant_getpolicyid",
-      "community": 7,
+      "community": 8,
       "norm_label": ".getpolicyid()"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_accessgrant_accessgrant_getgrantedat",
-      "community": 7,
+      "community": 8,
       "norm_label": ".getgrantedat()"
     },
     {
@@ -630,7 +630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent",
-      "community": 4,
+      "community": 1,
       "norm_label": "auditevent.java"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_auditevent",
-      "community": 4,
+      "community": 1,
       "norm_label": "auditevent"
     },
     {
@@ -650,7 +650,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_eventtype",
-      "community": 4,
+      "community": 1,
       "norm_label": "eventtype"
     },
     {
@@ -660,7 +660,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_java_string",
-      "community": 4,
+      "community": 1,
       "norm_label": "string"
     },
     {
@@ -670,7 +670,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_java_instant",
-      "community": 4,
+      "community": 1,
       "norm_label": "instant"
     },
     {
@@ -680,7 +680,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_auditevent_auditevent",
-      "community": 4,
+      "community": 1,
       "norm_label": ".auditevent()"
     },
     {
@@ -690,7 +690,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_auditevent_geteventid",
-      "community": 4,
+      "community": 1,
       "norm_label": ".geteventid()"
     },
     {
@@ -700,7 +700,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_auditevent_gettype",
-      "community": 4,
+      "community": 1,
       "norm_label": ".gettype()"
     },
     {
@@ -710,7 +710,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_auditevent_getactorid",
-      "community": 4,
+      "community": 1,
       "norm_label": ".getactorid()"
     },
     {
@@ -720,7 +720,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_auditevent_getdocumentid",
-      "community": 4,
+      "community": 1,
       "norm_label": ".getdocumentid()"
     },
     {
@@ -730,7 +730,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_auditevent_getdetail",
-      "community": 4,
+      "community": 1,
       "norm_label": ".getdetail()"
     },
     {
@@ -740,7 +740,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_auditevent_auditevent_getoccurredat",
-      "community": 4,
+      "community": 1,
       "norm_label": ".getoccurredat()"
     },
     {
@@ -750,7 +750,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document",
-      "community": 5,
+      "community": 0,
       "norm_label": "document.java"
     },
     {
@@ -787,7 +787,7 @@
       "label": ".Document()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_document",
       "community": 0,
@@ -797,7 +797,7 @@
       "label": ".getDocumentId()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_getdocumentid",
       "community": 0,
@@ -807,7 +807,7 @@
       "label": ".getFileName()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_getfilename",
       "community": 0,
@@ -817,7 +817,7 @@
       "label": ".setFileName()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_setfilename",
       "community": 0,
@@ -827,7 +827,7 @@
       "label": ".getOwnerId()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L32",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_getownerid",
       "community": 0,
@@ -837,7 +837,7 @@
       "label": ".getKeyId()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_getkeyid",
       "community": 0,
@@ -847,27 +847,27 @@
       "label": ".setKeyId()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_setkeyid",
-      "community": 0,
+      "community": 6,
       "norm_label": ".setkeyid()"
     },
     {
       "label": ".getEncryptedContent()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_getencryptedcontent",
-      "community": 2,
+      "community": 6,
       "norm_label": ".getencryptedcontent()"
     },
     {
       "label": ".setEncryptedContent()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L40",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_setencryptedcontent",
       "community": 0,
@@ -877,7 +877,7 @@
       "label": ".getSizeBytes()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L45",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_getsizebytes",
       "community": 0,
@@ -887,7 +887,7 @@
       "label": ".getUploadedAt()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L47",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_getuploadedat",
       "community": 0,
@@ -897,7 +897,7 @@
       "label": ".getLastAccessedAt()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_getlastaccessedat",
       "community": 0,
@@ -907,17 +907,37 @@
       "label": ".setLastAccessedAt()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L51",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_setlastaccessedat",
       "community": 0,
       "norm_label": ".setlastaccessedat()"
     },
     {
+      "label": ".getShreddedAt()",
+      "file_type": "code",
+      "source_file": "main/java/com/docuvault/model/Document.java",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "main_java_com_docuvault_model_document_document_getshreddedat",
+      "community": 0,
+      "norm_label": ".getshreddedat()"
+    },
+    {
+      "label": ".setShreddedAt()",
+      "file_type": "code",
+      "source_file": "main/java/com/docuvault/model/Document.java",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "main_java_com_docuvault_model_document_document_setshreddedat",
+      "community": 0,
+      "norm_label": ".setshreddedat()"
+    },
+    {
       "label": ".isShredded()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L53",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_isshredded",
       "community": 0,
@@ -927,7 +947,7 @@
       "label": ".markShredded()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L55",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_document_document_markshredded",
       "community": 0,
@@ -940,7 +960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey",
-      "community": 2,
+      "community": 5,
       "norm_label": "encryptionkey.java"
     },
     {
@@ -950,7 +970,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_encryptionkey",
-      "community": 2,
+      "community": 5,
       "norm_label": "encryptionkey"
     },
     {
@@ -960,7 +980,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_java_string",
-      "community": 2,
+      "community": 5,
       "norm_label": "string"
     },
     {
@@ -970,7 +990,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_java_instant",
-      "community": 2,
+      "community": 5,
       "norm_label": "instant"
     },
     {
@@ -980,7 +1000,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_encryptionkey_encryptionkey",
-      "community": 2,
+      "community": 5,
       "norm_label": ".encryptionkey()"
     },
     {
@@ -990,7 +1010,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_encryptionkey_getkeyid",
-      "community": 2,
+      "community": 5,
       "norm_label": ".getkeyid()"
     },
     {
@@ -1000,7 +1020,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_encryptionkey_getdocumentid",
-      "community": 2,
+      "community": 5,
       "norm_label": ".getdocumentid()"
     },
     {
@@ -1010,7 +1030,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_encryptionkey_getkeymaterial",
-      "community": 2,
+      "community": 6,
       "norm_label": ".getkeymaterial()"
     },
     {
@@ -1020,7 +1040,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_encryptionkey_getgeneration",
-      "community": 2,
+      "community": 5,
       "norm_label": ".getgeneration()"
     },
     {
@@ -1030,7 +1050,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_encryptionkey_getcreatedat",
-      "community": 2,
+      "community": 5,
       "norm_label": ".getcreatedat()"
     },
     {
@@ -1040,7 +1060,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_encryptionkey_isdestroyed",
-      "community": 2,
+      "community": 5,
       "norm_label": ".isdestroyed()"
     },
     {
@@ -1050,7 +1070,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_encryptionkey_encryptionkey_markdestroyed",
-      "community": 2,
+      "community": 5,
       "norm_label": ".markdestroyed()"
     },
     {
@@ -1060,7 +1080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy",
-      "community": 3,
+      "community": 2,
       "norm_label": "policy.java"
     },
     {
@@ -1070,7 +1090,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy",
-      "community": 3,
+      "community": 2,
       "norm_label": "policy"
     },
     {
@@ -1080,7 +1100,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_permission",
-      "community": 3,
+      "community": 2,
       "norm_label": "permission"
     },
     {
@@ -1090,7 +1110,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_java_string",
-      "community": 3,
+      "community": 2,
       "norm_label": "string"
     },
     {
@@ -1100,7 +1120,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_java_instant",
-      "community": 3,
+      "community": 2,
       "norm_label": "instant"
     },
     {
@@ -1110,7 +1130,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_policy",
-      "community": 3,
+      "community": 2,
       "norm_label": ".policy()"
     },
     {
@@ -1120,7 +1140,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_getpolicyid",
-      "community": 3,
+      "community": 2,
       "norm_label": ".getpolicyid()"
     },
     {
@@ -1130,7 +1150,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_getdocumentid",
-      "community": 3,
+      "community": 2,
       "norm_label": ".getdocumentid()"
     },
     {
@@ -1140,7 +1160,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_getgranteeid",
-      "community": 3,
+      "community": 2,
       "norm_label": ".getgranteeid()"
     },
     {
@@ -1150,7 +1170,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_getpermission",
-      "community": 3,
+      "community": 2,
       "norm_label": ".getpermission()"
     },
     {
@@ -1160,7 +1180,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_getexpiresat",
-      "community": 3,
+      "community": 2,
       "norm_label": ".getexpiresat()"
     },
     {
@@ -1170,7 +1190,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_setexpiresat",
-      "community": 3,
+      "community": 2,
       "norm_label": ".setexpiresat()"
     },
     {
@@ -1180,7 +1200,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_isrevoked",
-      "community": 3,
+      "community": 2,
       "norm_label": ".isrevoked()"
     },
     {
@@ -1190,7 +1210,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_markrevoked",
-      "community": 3,
+      "community": 2,
       "norm_label": ".markrevoked()"
     },
     {
@@ -1200,7 +1220,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_policy_policy_isexpired",
-      "community": 3,
+      "community": 2,
       "norm_label": ".isexpired()"
     },
     {
@@ -1210,7 +1230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user",
-      "community": 1,
+      "community": 4,
       "norm_label": "user.java"
     },
     {
@@ -1220,7 +1240,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user",
-      "community": 1,
+      "community": 4,
       "norm_label": "user"
     },
     {
@@ -1230,7 +1250,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_java_string",
-      "community": 1,
+      "community": 4,
       "norm_label": "string"
     },
     {
@@ -1240,7 +1260,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_java_instant",
-      "community": 1,
+      "community": 4,
       "norm_label": "instant"
     },
     {
@@ -1250,7 +1270,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user_user",
-      "community": 1,
+      "community": 4,
       "norm_label": ".user()"
     },
     {
@@ -1260,7 +1280,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user_getuserid",
-      "community": 1,
+      "community": 4,
       "norm_label": ".getuserid()"
     },
     {
@@ -1270,7 +1290,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user_getemail",
-      "community": 1,
+      "community": 4,
       "norm_label": ".getemail()"
     },
     {
@@ -1280,7 +1300,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user_getdisplayname",
-      "community": 1,
+      "community": 4,
       "norm_label": ".getdisplayname()"
     },
     {
@@ -1290,7 +1310,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user_getpasswordhash",
-      "community": 1,
+      "community": 4,
       "norm_label": ".getpasswordhash()"
     },
     {
@@ -1300,7 +1320,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user_setpasswordhash",
-      "community": 1,
+      "community": 4,
       "norm_label": ".setpasswordhash()"
     },
     {
@@ -1310,7 +1330,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user_getregisteredat",
-      "community": 1,
+      "community": 4,
       "norm_label": ".getregisteredat()"
     },
     {
@@ -1320,7 +1340,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user_isactive",
-      "community": 1,
+      "community": 4,
       "norm_label": ".isactive()"
     },
     {
@@ -1330,7 +1350,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "main_java_com_docuvault_model_user_user_deactivate",
-      "community": 1,
+      "community": 4,
       "norm_label": ".deactivate()"
     },
     {
@@ -1340,7 +1360,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_auditrepository",
-      "community": 4,
+      "community": 1,
       "norm_label": "auditrepository.java"
     },
     {
@@ -1350,7 +1370,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_auditrepository_auditrepository",
-      "community": 4,
+      "community": 1,
       "norm_label": "auditrepository"
     },
     {
@@ -1360,7 +1380,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_auditrepository_java_list",
-      "community": 4,
+      "community": 1,
       "norm_label": "list"
     },
     {
@@ -1370,7 +1390,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_auditrepository_auditrepository_appendevent",
-      "community": 4,
+      "community": 1,
       "norm_label": ".appendevent()"
     },
     {
@@ -1380,7 +1400,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_auditrepository_auditrepository_findeventsinrange",
-      "community": 4,
+      "community": 1,
       "norm_label": ".findeventsinrange()"
     },
     {
@@ -1390,7 +1410,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_auditrepository_java_instant",
-      "community": 4,
+      "community": 1,
       "norm_label": "instant"
     },
     {
@@ -1400,7 +1420,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_auditrepository_auditrepository_findeventsfordocument",
-      "community": 4,
+      "community": 1,
       "norm_label": ".findeventsfordocument()"
     },
     {
@@ -1410,7 +1430,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_auditrepository_java_string",
-      "community": 4,
+      "community": 1,
       "norm_label": "string"
     },
     {
@@ -1484,10 +1504,20 @@
       "norm_label": ".touchlastaccessed()"
     },
     {
-      "label": ".findAllDocuments()",
+      "label": ".recordShred()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
       "source_location": "L37",
+      "_origin": "ast",
+      "id": "main_java_com_docuvault_repository_documentrepository_documentrepository_recordshred",
+      "community": 0,
+      "norm_label": ".recordshred()"
+    },
+    {
+      "label": ".findAllDocuments()",
+      "file_type": "code",
+      "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_documentrepository_documentrepository_findalldocuments",
       "community": 0,
@@ -1507,7 +1537,7 @@
       "label": ".removeDocument()",
       "file_type": "code",
       "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
-      "source_location": "L41",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_documentrepository_documentrepository_removedocument",
       "community": 0,
@@ -1520,7 +1550,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_keystorerepository",
-      "community": 2,
+      "community": 5,
       "norm_label": "keystorerepository.java"
     },
     {
@@ -1530,7 +1560,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_keystorerepository_keystorerepository",
-      "community": 2,
+      "community": 5,
       "norm_label": "keystorerepository"
     },
     {
@@ -1540,7 +1570,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_keystorerepository_java_map",
-      "community": 2,
+      "community": 5,
       "norm_label": "map"
     },
     {
@@ -1550,7 +1580,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_keystorerepository_java_string",
-      "community": 2,
+      "community": 5,
       "norm_label": "string"
     },
     {
@@ -1560,7 +1590,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_keystorerepository_keystorerepository_storekey",
-      "community": 2,
+      "community": 5,
       "norm_label": ".storekey()"
     },
     {
@@ -1570,7 +1600,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_keystorerepository_keystorerepository_loadkey",
-      "community": 2,
+      "community": 5,
       "norm_label": ".loadkey()"
     },
     {
@@ -1580,7 +1610,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_keystorerepository_keystorerepository_deletekey",
-      "community": 2,
+      "community": 5,
       "norm_label": ".deletekey()"
     },
     {
@@ -1590,7 +1620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_policyrepository",
-      "community": 3,
+      "community": 2,
       "norm_label": "policyrepository.java"
     },
     {
@@ -1600,7 +1630,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_policyrepository_policyrepository",
-      "community": 3,
+      "community": 2,
       "norm_label": "policyrepository"
     },
     {
@@ -1610,7 +1640,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_policyrepository_java_map",
-      "community": 3,
+      "community": 2,
       "norm_label": "map"
     },
     {
@@ -1620,7 +1650,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_policyrepository_java_string",
-      "community": 3,
+      "community": 2,
       "norm_label": "string"
     },
     {
@@ -1630,7 +1660,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_policyrepository_java_list",
-      "community": 3,
+      "community": 2,
       "norm_label": "list"
     },
     {
@@ -1640,7 +1670,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_policyrepository_policyrepository_savepolicy",
-      "community": 3,
+      "community": 2,
       "norm_label": ".savepolicy()"
     },
     {
@@ -1650,7 +1680,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_policyrepository_policyrepository_findpolicyforuser",
-      "community": 3,
+      "community": 2,
       "norm_label": ".findpolicyforuser()"
     },
     {
@@ -1660,7 +1690,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_policyrepository_java_optional",
-      "community": 3,
+      "community": 2,
       "norm_label": "optional"
     },
     {
@@ -1670,7 +1700,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_policyrepository_policyrepository_findpoliciesfordocument",
-      "community": 3,
+      "community": 2,
       "norm_label": ".findpoliciesfordocument()"
     },
     {
@@ -1680,7 +1710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_userrepository",
-      "community": 1,
+      "community": 4,
       "norm_label": "userrepository.java"
     },
     {
@@ -1690,7 +1720,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_userrepository_userrepository",
-      "community": 1,
+      "community": 4,
       "norm_label": "userrepository"
     },
     {
@@ -1700,7 +1730,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_userrepository_java_map",
-      "community": 1,
+      "community": 4,
       "norm_label": "map"
     },
     {
@@ -1710,7 +1740,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_userrepository_java_string",
-      "community": 1,
+      "community": 4,
       "norm_label": "string"
     },
     {
@@ -1720,7 +1750,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_userrepository_userrepository_saveuser",
-      "community": 1,
+      "community": 4,
       "norm_label": ".saveuser()"
     },
     {
@@ -1730,7 +1760,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_userrepository_userrepository_finduser",
-      "community": 1,
+      "community": 0,
       "norm_label": ".finduser()"
     },
     {
@@ -1740,7 +1770,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_userrepository_userrepository_finduserbyemail",
-      "community": 1,
+      "community": 4,
       "norm_label": ".finduserbyemail()"
     },
     {
@@ -1750,7 +1780,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_repository_userrepository_java_optional",
-      "community": 1,
+      "community": 4,
       "norm_label": "optional"
     },
     {
@@ -1760,7 +1790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_security_threatscanner",
-      "community": 6,
+      "community": 3,
       "norm_label": "threatscanner.java"
     },
     {
@@ -1770,7 +1800,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "main_java_com_docuvault_security_threatscanner_threatscanner",
-      "community": 0,
+      "community": 3,
       "norm_label": "threatscanner"
     },
     {
@@ -1780,7 +1810,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "main_java_com_docuvault_security_threatscanner_threatscanner_scanupload",
-      "community": 0,
+      "community": 3,
       "norm_label": ".scanupload()"
     },
     {
@@ -1790,7 +1820,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_security_threatscanner_java_string",
-      "community": 0,
+      "community": 3,
       "norm_label": "string"
     },
     {
@@ -1800,7 +1830,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "main_java_com_docuvault_security_threatscanner_threatscanner_matchesknownsignature",
-      "community": 0,
+      "community": 3,
       "norm_label": ".matchesknownsignature()"
     },
     {
@@ -1810,7 +1840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_accessservice",
-      "community": 5,
+      "community": 4,
       "norm_label": "accessservice.java"
     },
     {
@@ -1820,7 +1850,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_accessservice_accessservice",
-      "community": 7,
+      "community": 3,
       "norm_label": "accessservice"
     },
     {
@@ -1830,7 +1860,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_accessservice_accessservice_accessservice",
-      "community": 3,
+      "community": 2,
       "norm_label": ".accessservice()"
     },
     {
@@ -1840,7 +1870,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_accessservice_accessservice_grantaccess",
-      "community": 1,
+      "community": 0,
       "norm_label": ".grantaccess()"
     },
     {
@@ -1850,7 +1880,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_accessservice_java_string",
-      "community": 1,
+      "community": 0,
       "norm_label": "string"
     },
     {
@@ -1870,7 +1900,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_accessservice_accessservice_revokeaccess",
-      "community": 1,
+      "community": 0,
       "norm_label": ".revokeaccess()"
     },
     {
@@ -1880,7 +1910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_auditservice",
-      "community": 4,
+      "community": 1,
       "norm_label": "auditservice.java"
     },
     {
@@ -1890,7 +1920,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_auditservice_auditservice",
-      "community": 6,
+      "community": 1,
       "norm_label": "auditservice"
     },
     {
@@ -1900,7 +1930,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_auditservice_auditservice_auditservice",
-      "community": 6,
+      "community": 1,
       "norm_label": ".auditservice()"
     },
     {
@@ -1930,7 +1960,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_auditservice_auditservice_buildcompliancereport",
-      "community": 4,
+      "community": 1,
       "norm_label": ".buildcompliancereport()"
     },
     {
@@ -1940,7 +1970,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_auditservice_java_instant",
-      "community": 4,
+      "community": 1,
       "norm_label": "instant"
     },
     {
@@ -1950,7 +1980,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_auditservice_java_path",
-      "community": 4,
+      "community": 1,
       "norm_label": "path"
     },
     {
@@ -1960,7 +1990,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_documentservice",
-      "community": 0,
+      "community": 3,
       "norm_label": "documentservice.java"
     },
     {
@@ -1970,7 +2000,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_documentservice_documentservice",
-      "community": 0,
+      "community": 3,
       "norm_label": "documentservice"
     },
     {
@@ -1980,7 +2010,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_documentservice_documentservice_documentservice",
-      "community": 2,
+      "community": 3,
       "norm_label": ".documentservice()"
     },
     {
@@ -2040,7 +2070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_notificationservice",
-      "community": 6,
+      "community": 3,
       "norm_label": "notificationservice.java"
     },
     {
@@ -2050,7 +2080,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_notificationservice_notificationservice",
-      "community": 1,
+      "community": 10,
       "norm_label": "notificationservice"
     },
     {
@@ -2060,7 +2090,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_notificationservice_notificationservice_sendshareinvite",
-      "community": 1,
+      "community": 10,
       "norm_label": ".sendshareinvite()"
     },
     {
@@ -2070,7 +2100,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_notificationservice_java_string",
-      "community": 1,
+      "community": 10,
       "norm_label": "string"
     },
     {
@@ -2080,7 +2110,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_notificationservice_notificationservice_sendrevocationnotice",
-      "community": 1,
+      "community": 10,
       "norm_label": ".sendrevocationnotice()"
     },
     {
@@ -2090,7 +2120,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_notificationservice_notificationservice_sendwelcomeemail",
-      "community": 1,
+      "community": 10,
       "norm_label": ".sendwelcomeemail()"
     },
     {
@@ -2100,7 +2130,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_notificationservice_notificationservice_deliveremail",
-      "community": 1,
+      "community": 10,
       "norm_label": ".deliveremail()"
     },
     {
@@ -2110,7 +2140,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_policyservice",
-      "community": 3,
+      "community": 2,
       "norm_label": "policyservice.java"
     },
     {
@@ -2120,7 +2150,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_policyservice_policyservice",
-      "community": 3,
+      "community": 2,
       "norm_label": "policyservice"
     },
     {
@@ -2130,7 +2160,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_policyservice_policyservice_policyservice",
-      "community": 3,
+      "community": 2,
       "norm_label": ".policyservice()"
     },
     {
@@ -2140,7 +2170,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_policyservice_policyservice_evaluatepolicy",
-      "community": 3,
+      "community": 2,
       "norm_label": ".evaluatepolicy()"
     },
     {
@@ -2150,7 +2180,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_policyservice_java_string",
-      "community": 3,
+      "community": 2,
       "norm_label": "string"
     },
     {
@@ -2160,7 +2190,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_policyservice_policyservice_createsharepolicy",
-      "community": 3,
+      "community": 2,
       "norm_label": ".createsharepolicy()"
     },
     {
@@ -2170,7 +2200,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_policyservice_policyservice_revokepoliciesforuser",
-      "community": 3,
+      "community": 2,
       "norm_label": ".revokepoliciesforuser()"
     },
     {
@@ -2180,7 +2210,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_retentionservice",
-      "community": 6,
+      "community": 3,
       "norm_label": "retentionservice.java"
     },
     {
@@ -2190,7 +2220,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_retentionservice_retentionservice",
-      "community": 6,
+      "community": 3,
       "norm_label": "retentionservice"
     },
     {
@@ -2200,7 +2230,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "duration",
-      "community": 6,
+      "community": 3,
       "norm_label": "duration"
     },
     {
@@ -2210,7 +2240,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_retentionservice_retentionservice_retentionservice",
-      "community": 6,
+      "community": 3,
       "norm_label": ".retentionservice()"
     },
     {
@@ -2220,7 +2250,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_retentionservice_retentionservice_sweepexpireddocuments",
-      "community": 8,
+      "community": 3,
       "norm_label": ".sweepexpireddocuments()"
     },
     {
@@ -2240,7 +2270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_userservice",
-      "community": 5,
+      "community": 6,
       "norm_label": "userservice.java"
     },
     {
@@ -2250,7 +2280,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_userservice_userservice",
-      "community": 1,
+      "community": 4,
       "norm_label": "userservice"
     },
     {
@@ -2260,7 +2290,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_userservice_userservice_userservice",
-      "community": 1,
+      "community": 4,
       "norm_label": ".userservice()"
     },
     {
@@ -2270,7 +2300,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_userservice_userservice_registeruser",
-      "community": 1,
+      "community": 4,
       "norm_label": ".registeruser()"
     },
     {
@@ -2280,7 +2310,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_service_userservice_java_string",
-      "community": 1,
+      "community": 4,
       "norm_label": "string"
     },
     {
@@ -2290,7 +2320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_fileutil",
-      "community": 4,
+      "community": 9,
       "norm_label": "fileutil.java"
     },
     {
@@ -2300,7 +2330,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_fileutil_fileutil",
-      "community": 4,
+      "community": 9,
       "norm_label": "fileutil"
     },
     {
@@ -2310,7 +2340,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_fileutil_fileutil_fileutil",
-      "community": 4,
+      "community": 9,
       "norm_label": ".fileutil()"
     },
     {
@@ -2320,7 +2350,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_fileutil_fileutil_writereportfile",
-      "community": 4,
+      "community": 9,
       "norm_label": ".writereportfile()"
     },
     {
@@ -2330,7 +2360,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_fileutil_java_string",
-      "community": 4,
+      "community": 9,
       "norm_label": "string"
     },
     {
@@ -2340,7 +2370,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_fileutil_java_path",
-      "community": 4,
+      "community": 9,
       "norm_label": "path"
     },
     {
@@ -2350,7 +2380,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_fileutil_fileutil_scrubtempfile",
-      "community": 4,
+      "community": 9,
       "norm_label": ".scrubtempfile()"
     },
     {
@@ -2360,7 +2390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_inputvalidator",
-      "community": 5,
+      "community": 6,
       "norm_label": "inputvalidator.java"
     },
     {
@@ -2370,7 +2400,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_inputvalidator_inputvalidator",
-      "community": 5,
+      "community": 6,
       "norm_label": "inputvalidator"
     },
     {
@@ -2380,7 +2410,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "pattern",
-      "community": 5,
+      "community": 6,
       "norm_label": "pattern"
     },
     {
@@ -2390,7 +2420,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_inputvalidator_inputvalidator_inputvalidator",
-      "community": 5,
+      "community": 6,
       "norm_label": ".inputvalidator()"
     },
     {
@@ -2410,7 +2440,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_inputvalidator_java_string",
-      "community": 5,
+      "community": 6,
       "norm_label": "string"
     },
     {
@@ -2420,7 +2450,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_inputvalidator_inputvalidator_validateemail",
-      "community": 5,
+      "community": 6,
       "norm_label": ".validateemail()"
     },
     {
@@ -2430,7 +2460,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_inputvalidator_inputvalidator_validateidentifier",
-      "community": 5,
+      "community": 6,
       "norm_label": ".validateidentifier()"
     },
     {
@@ -2440,7 +2470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_vaultlogger",
-      "community": 6,
+      "community": 3,
       "norm_label": "vaultlogger.java"
     },
     {
@@ -2450,7 +2480,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_vaultlogger_vaultlogger",
-      "community": 8,
+      "community": 7,
       "norm_label": "vaultlogger"
     },
     {
@@ -2460,7 +2490,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_vaultlogger_vaultlogger_vaultlogger",
-      "community": 8,
+      "community": 7,
       "norm_label": ".vaultlogger()"
     },
     {
@@ -2470,7 +2500,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_vaultlogger_vaultlogger_loginfo",
-      "community": 8,
+      "community": 7,
       "norm_label": ".loginfo()"
     },
     {
@@ -2480,7 +2510,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_vaultlogger_java_string",
-      "community": 8,
+      "community": 7,
       "norm_label": "string"
     },
     {
@@ -2490,7 +2520,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_vaultlogger_vaultlogger_logwarning",
-      "community": 8,
+      "community": 7,
       "norm_label": ".logwarning()"
     },
     {
@@ -2500,7 +2530,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_vaultlogger_vaultlogger_logerror",
-      "community": 8,
+      "community": 7,
       "norm_label": ".logerror()"
     },
     {
@@ -2510,7 +2540,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "throwable",
-      "community": 8,
+      "community": 7,
       "norm_label": "throwable"
     },
     {
@@ -2520,7 +2550,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "main_java_com_docuvault_util_vaultlogger_vaultlogger_emit",
-      "community": 8,
+      "community": 7,
       "norm_label": ".emit()"
     }
   ],
@@ -4841,7 +4871,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_document",
@@ -4851,7 +4881,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_getdocumentid",
@@ -4861,7 +4891,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_getencryptedcontent",
@@ -4871,7 +4901,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_getfilename",
@@ -4881,7 +4911,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_getkeyid",
@@ -4891,7 +4921,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_getlastaccessedat",
@@ -4901,7 +4931,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_getownerid",
@@ -4911,7 +4941,17 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L45",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "main_java_com_docuvault_model_document_document",
+      "target": "main_java_com_docuvault_model_document_document_getshreddedat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "main/java/com/docuvault/model/Document.java",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_getsizebytes",
@@ -4921,7 +4961,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L47",
+      "source_location": "L48",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_getuploadedat",
@@ -4931,7 +4971,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L53",
+      "source_location": "L58",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_isshredded",
@@ -4941,7 +4981,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L55",
+      "source_location": "L60",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_markshredded",
@@ -4951,7 +4991,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_setencryptedcontent",
@@ -4961,7 +5001,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_setfilename",
@@ -4971,7 +5011,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_setkeyid",
@@ -4981,17 +5021,27 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0,
       "source": "main_java_com_docuvault_model_document_document",
       "target": "main_java_com_docuvault_model_document_document_setlastaccessedat",
       "confidence_score": 1.0
     },
     {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "main/java/com/docuvault/model/Document.java",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "main_java_com_docuvault_model_document_document",
+      "target": "main_java_com_docuvault_model_document_document_setshreddedat",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "context": "field",
       "source": "main_java_com_docuvault_model_document_document",
@@ -5035,7 +5085,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
-      "source_location": "L37",
+      "source_location": "L45",
       "weight": 1.0,
       "context": "generic_arg",
       "source": "main_java_com_docuvault_repository_documentrepository_documentrepository_findalldocuments",
@@ -5123,7 +5173,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0,
       "context": "parameter_type",
       "source": "main_java_com_docuvault_model_document_document_document",
@@ -5134,7 +5184,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0,
       "context": "return_type",
       "source": "main_java_com_docuvault_model_document_document_getdocumentid",
@@ -5145,7 +5195,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "context": "return_type",
       "source": "main_java_com_docuvault_model_document_document_getfilename",
@@ -5156,7 +5206,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "context": "return_type",
       "source": "main_java_com_docuvault_model_document_document_getkeyid",
@@ -5167,7 +5217,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "context": "return_type",
       "source": "main_java_com_docuvault_model_document_document_getownerid",
@@ -5178,7 +5228,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "context": "parameter_type",
       "source": "main_java_com_docuvault_model_document_document_setfilename",
@@ -5189,7 +5239,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "context": "parameter_type",
       "source": "main_java_com_docuvault_model_document_document_setkeyid",
@@ -5200,7 +5250,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0,
       "context": "return_type",
       "source": "main_java_com_docuvault_model_document_document_getlastaccessedat",
@@ -5211,7 +5261,18 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L47",
+      "source_location": "L54",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "main_java_com_docuvault_model_document_document_getshreddedat",
+      "target": "main_java_com_docuvault_model_document_java_instant",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "main/java/com/docuvault/model/Document.java",
+      "source_location": "L48",
       "weight": 1.0,
       "context": "return_type",
       "source": "main_java_com_docuvault_model_document_document_getuploadedat",
@@ -5222,10 +5283,21 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/model/Document.java",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0,
       "context": "parameter_type",
       "source": "main_java_com_docuvault_model_document_document_setlastaccessedat",
+      "target": "main_java_com_docuvault_model_document_java_instant",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "main/java/com/docuvault/model/Document.java",
+      "source_location": "L56",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "main_java_com_docuvault_model_document_document_setshreddedat",
       "target": "main_java_com_docuvault_model_document_java_instant",
       "confidence_score": 1.0
     },
@@ -5257,7 +5329,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "main/java/com/docuvault/service/DocumentService.java",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0,
       "source": "main_java_com_docuvault_service_documentservice_documentservice_deletedocument",
       "target": "main_java_com_docuvault_model_document_document_getfilename"
@@ -5356,6 +5428,17 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "main_java_com_docuvault_repository_documentrepository_documentrepository_recordshred",
+      "target": "main_java_com_docuvault_model_document_document_setshreddedat"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
       "source_location": "L22",
       "weight": 1.0,
       "source": "main_java_com_docuvault_repository_documentrepository_documentrepository_finddocument",
@@ -5367,7 +5450,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
-      "source_location": "L44",
+      "source_location": "L52",
       "weight": 1.0,
       "source": "main_java_com_docuvault_repository_documentrepository_documentrepository_removedocument",
       "target": "main_java_com_docuvault_model_document_document_markshredded"
@@ -6638,7 +6721,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
-      "source_location": "L37",
+      "source_location": "L45",
       "weight": 1.0,
       "source": "main_java_com_docuvault_repository_documentrepository_documentrepository",
       "target": "main_java_com_docuvault_repository_documentrepository_documentrepository_findalldocuments",
@@ -6658,7 +6741,17 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
-      "source_location": "L41",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "main_java_com_docuvault_repository_documentrepository_documentrepository",
+      "target": "main_java_com_docuvault_repository_documentrepository_documentrepository_recordshred",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
+      "source_location": "L49",
       "weight": 1.0,
       "source": "main_java_com_docuvault_repository_documentrepository_documentrepository",
       "target": "main_java_com_docuvault_repository_documentrepository_documentrepository_removedocument",
@@ -6820,7 +6913,18 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
-      "source_location": "L41",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "main_java_com_docuvault_repository_documentrepository_documentrepository_recordshred",
+      "target": "main_java_com_docuvault_repository_documentrepository_java_string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
+      "source_location": "L49",
       "weight": 1.0,
       "context": "parameter_type",
       "source": "main_java_com_docuvault_repository_documentrepository_documentrepository_removedocument",
@@ -6938,10 +7042,21 @@
       "target": "main_java_com_docuvault_repository_documentrepository_documentrepository_touchlastaccessed"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "main/java/com/docuvault/service/DocumentService.java",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "main_java_com_docuvault_service_documentservice_documentservice_deletedocument",
+      "target": "main_java_com_docuvault_repository_documentrepository_documentrepository_recordshred"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "main/java/com/docuvault/repository/DocumentRepository.java",
-      "source_location": "L37",
+      "source_location": "L45",
       "weight": 1.0,
       "context": "return_type",
       "source": "main_java_com_docuvault_repository_documentrepository_documentrepository_findalldocuments",
@@ -6965,7 +7080,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "main/java/com/docuvault/service/DocumentService.java",
-      "source_location": "L81",
+      "source_location": "L82",
       "weight": 1.0,
       "source": "main_java_com_docuvault_service_documentservice_documentservice_deletedocument",
       "target": "main_java_com_docuvault_repository_documentrepository_documentrepository_removedocument"
@@ -8107,7 +8222,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "main/java/com/docuvault/service/DocumentService.java",
-      "source_location": "L82",
+      "source_location": "L83",
       "weight": 1.0,
       "source": "main_java_com_docuvault_service_documentservice_documentservice_deletedocument",
       "target": "main_java_com_docuvault_service_auditservice_auditservice_recordevent"
@@ -9143,5 +9258,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f0de3557b65166dc0cd045e3eef7ac49dc0f36a6"
+  "built_at_commit": "83953bdf6699baae84b2db582a9d2e975431158c"
 }
