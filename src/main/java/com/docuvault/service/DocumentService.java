@@ -41,6 +41,7 @@ public class DocumentService {
         byte[] cipherText = encryptionEngine.encryptDocument(document, rawContent);
         document.setEncryptedContent(cipherText);
         documentRepository.saveDocument(document);
+        documentRepository.recordProtection(document.getDocumentId());
         auditService.recordEvent(AuditEvent.EventType.DOCUMENT_UPLOADED, ownerId,
                 document.getDocumentId(), fileName + " (" + cipherText.length + " bytes)");
         return document;

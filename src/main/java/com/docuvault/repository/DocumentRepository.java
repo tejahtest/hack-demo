@@ -41,6 +41,14 @@ public class DocumentRepository {
         }
     }
 
+    /** Records the moment a document was encrypted and stored, for upload auditing. */
+    public void recordProtection(String documentId) {
+        Document document = documentsById.get(documentId);
+        if (document != null) {
+            document.setProtectedAt(Instant.now());
+        }
+    }
+
     /** Snapshot of every live document, used by retention sweeps. */
     public Collection<Document> findAllDocuments() {
         return List.copyOf(documentsById.values());
