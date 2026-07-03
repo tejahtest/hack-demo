@@ -1,0 +1,128 @@
+name: Code2Docs Setup
+
+# Manual, one-time (or rebuild-from-scratch) bootstrap of the Code2Docs docs.
+# Builds the code graph from the current main, extracts ALL flows, renders every
+# surface, publishes the living docs to GitHub Pages, and opens a review PR with
+# the generated source files. Trigger it by hand from the Actions tab.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Product version label (optional; defaults to VERSION.txt)"
+        required: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      pages: write
+      id-token: write
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve module
+        id: vars
+        run: |
+          MODULE=$(python3 -c "import json;print(json.load(open('code2docs/config.json'))['module_root'])")
+          echo "module=$MODULE" >> "$GITHUB_OUTPUT"
+          echo "Module=$MODULE"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install graphify
+        run: pip install graphifyy
+
+      # 1. Build the CONTEXT LAYER from scratch. `graphify update <module>` writes
+      #    <module>/graphify-out/graph.json; copy it up to the canonical top-level
+      #    graphify-out/graph.json that config.json + the renderers read.
+      - name: Build code graph
+        run: |
+          graphify update "${{ steps.vars.outputs.module }}"
+          mkdir -p graphify-out
+          MOD_GRAPH="${{ steps.vars.outputs.module }}/graphify-out/graph.json"
+          if [ -f "$MOD_GRAPH" ]; then
+            cp "$MOD_GRAPH" graphify-out/graph.json
+            echo "copied graph -> graphify-out/graph.json"
+          else
+            echo "::error::graphify update produced no $MOD_GRAPH"; exit 1
+          fi
+
+      # 2. Extract the flow model (all flows) from the graph.
+      - name: Extract flows
+        run: python code2docs/extract_flows.py
+
+      # 3. Render every surface. --bootstrap seeds the release digest catalog.
+      - name: Render interactive living docs
+        run: python code2docs/render_interactive.py
+
+      - name: Render release digest
+        run: |
+          VERSION_ARG=""
+          [ -n "${{ github.event.inputs.version }}" ] && VERSION_ARG="--version ${{ github.event.inputs.version }}"
+          python code2docs/render_release_digest.py --bootstrap $VERSION_ARG
+
+      - name: Sync Confluence pages (live if CONFLUENCE_* secrets set, else preview)
+        env:
+          CONFLUENCE_BASE_URL: ${{ secrets.CONFLUENCE_BASE_URL }}
+          CONFLUENCE_USER: ${{ secrets.CONFLUENCE_USER }}
+          CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
+          CONFLUENCE_SPACE_KEY: ${{ secrets.CONFLUENCE_SPACE_KEY }}
+        run: python code2docs/confluence_sync.py
+
+      # 4. Package the living docs for GitHub Pages + an offline artifact copy.
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/interactive
+      - name: Upload living-docs artifact (offline copy)
+        uses: actions/upload-artifact@v4
+        with:
+          name: docuvault-living-docs
+          path: docs/interactive
+
+      # 5. Review gate: open a docs PR with the generated source files (never push to main).
+      - name: Open docs review PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: code2docs/setup
+          title: "docs: Code2Docs bootstrap"
+          commit-message: "docs: Code2Docs bootstrap (graph, flows, living docs, release notes)"
+          body: |
+            Initial **Code2Docs** bootstrap, generated from the code graph.
+
+            - All flows extracted (`code2docs/flows.json`)
+            - Interactive living docs rendered (`docs/interactive/`) and published to GitHub Pages
+            - Release digest seeded (`docs/RELEASE_NOTES.md`)
+            - Confluence pages synced as drafts (label `code2docs-review`)
+
+            Merge to establish the documentation baseline on `main`.
+          labels: code2docs, documentation
+          add-paths: |
+            graphify-out/**
+            code2docs/flows.json
+            code2docs/.confluence_map.json
+            docs/interactive/**
+            docs/RELEASE_NOTES.md
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
