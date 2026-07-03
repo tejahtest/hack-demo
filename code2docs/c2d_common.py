@@ -88,11 +88,20 @@ def readable(label: str) -> str:
     """
     name = label.strip()
     name = re.sub(r"\(.*?\)$", "", name).strip()      # drop trailing ()
+    name = name.lstrip(".")                            # drop graphify leading-dot method notation
+    name = name.rsplit(".", 1)[-1]                     # keep the method name if qualified (Class.method)
     name = re.sub(r"^handle(?=[A-Z])", "", name)       # drop controller 'handle' prefix
     words = _CAMEL.sub(" ", name).replace("_", " ").split()
     if not words:
         return label
     return " ".join(w if w.isupper() else w.lower() for w in words)
+
+
+def short_label(label: str) -> str:
+    """Bare method name for a diagram caption: '.buildComplianceReport()' -> 'buildComplianceReport'."""
+    name = re.sub(r"\(.*?\)$", "", label.strip()).strip()
+    name = name.lstrip(".").rsplit(".", 1)[-1]
+    return name or label.strip()
 
 
 def slugify(text: str) -> str:
@@ -203,6 +212,8 @@ _EMOJI_RULES = [
     (("notification", "email", "invite"), "✉️"),
     (("policy", "access", "permission"), "🛡️"),
     (("controller", "api"), "⚙️"),
+    (("service", "logic"), "🧠"),
+    (("model", "domain", "entity"), "🗂️"),
     (("document", "vault"), "📄"),
     (("user", "account"), "👤"),
     (("log", "config", "util", "validator"), "📝"),
@@ -215,3 +226,28 @@ def emoji_for(name: str) -> str:
         if any(k in low for k in keys):
             return emoji
     return "📦"
+
+
+def derive_community_labels(graph: dict) -> dict:
+    """community id -> readable lane name, from the dominant class (source file)
+    of its function nodes. Deterministic (no LLM/API key), and distinct per lane
+    (class names rarely collide, unlike folders). Used when graphify emitted no
+    .graphify_labels.json, so lanes read as 'AuditService'/'KeyManager' rather
+    than 'Component 3'. Accepts a full graph or a {"_nodes_by_id": {...}} wrapper.
+    """
+    import collections
+    classes = collections.defaultdict(collections.Counter)
+    for node in graph.get("_nodes_by_id", {}).values():
+        cid = node.get("community")
+        if cid is None or not is_function(node):
+            continue
+        sf = (node.get("source_file") or "").replace("\\", "/")
+        base = sf.rsplit("/", 1)[-1]
+        cls = re.sub(r"\.[A-Za-z0-9]+$", "", base)  # strip extension -> class name
+        if cls:
+            classes[cid][cls] += 1
+    labels = {}
+    for cid, counter in classes.items():
+        if counter:
+            labels[cid] = counter.most_common(1)[0][0]
+    return labels
