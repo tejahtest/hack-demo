@@ -200,6 +200,7 @@ def plan_changes(flow, fids, added_edges, removed_edges, new_nodes, version):
 def apply_highlights(doc, impacted, new_nodes, version):
     """Write since/changed markers and new steps into flows.json in place."""
     by_id = {f["id"]: f for f in doc.get("flows", [])}
+    comm_labels = c2d.derive_community_labels({"_nodes_by_id": new_nodes})
     touched = 0
     for det in impacted:
         flow = by_id.get(det["id"])
@@ -227,12 +228,14 @@ def apply_highlights(doc, impacted, new_nodes, version):
             src = new_nodes.get(src_id)
             if not tgt or not src:
                 continue
-            from_lane = lane_for(src.get("community"), f"Component {src.get('community')}")
-            to_lane = lane_for(tgt.get("community"), f"Component {tgt.get('community')}")
+            from_lane = lane_for(src.get("community"),
+                                 comm_labels.get(src.get("community"), f"Component {src.get('community')}"))
+            to_lane = lane_for(tgt.get("community"),
+                               comm_labels.get(tgt.get("community"), f"Component {tgt.get('community')}"))
             action = c2d.action_phrase(tgt["label"])
             new_step = {
                 "from": from_lane, "to": to_lane,
-                "cap": tgt["label"].rstrip("()") or tgt["label"],
+                "cap": c2d.short_label(tgt["label"]),
                 "say": action, "since": version, "changed": False,
                 "tech": f"`{src['label']}` -> `{tgt['label']}`  ·  "
                         f"{tgt.get('source_file','?')}:{e.get('source_location','?')}",
