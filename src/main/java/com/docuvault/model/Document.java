@@ -14,6 +14,7 @@ public class Document {
     private Instant uploadedAt;
     private Instant lastAccessedAt;
     private Instant shreddedAt;
+    private Instant protectedAt;
     private boolean shredded;
 
     public Document(String documentId, String fileName, String ownerId) {
@@ -54,6 +55,10 @@ public class Document {
     public Instant getShreddedAt() { return shreddedAt; }
 
     public void setShreddedAt(Instant shreddedAt) { this.shreddedAt = shreddedAt; }
+
+    public Instant getProtectedAt() { return protectedAt; }
+
+    public void setProtectedAt(Instant protectedAt) { this.protectedAt = protectedAt; }
 
     public boolean isShredded() { return shredded; }
 
