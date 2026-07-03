@@ -12,6 +12,7 @@ public class Document {
     private byte[] encryptedContent;
     private long sizeBytes;
     private Instant uploadedAt;
+    private Instant lastAccessedAt;
     private boolean shredded;
 
     public Document(String documentId, String fileName, String ownerId) {
@@ -44,6 +45,10 @@ public class Document {
     public long getSizeBytes() { return sizeBytes; }
 
     public Instant getUploadedAt() { return uploadedAt; }
+
+    public Instant getLastAccessedAt() { return lastAccessedAt; }
+
+    public void setLastAccessedAt(Instant lastAccessedAt) { this.lastAccessedAt = lastAccessedAt; }
 
     public boolean isShredded() { return shredded; }
 

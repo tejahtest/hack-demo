@@ -2,6 +2,7 @@ package com.docuvault.repository;
 
 import com.docuvault.model.Document;
 
+import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +23,14 @@ public class DocumentRepository {
             throw new IllegalStateException("Document not found: " + documentId);
         }
         return document;
+    }
+
+    /** Records the moment a document was last opened, for access auditing. */
+    public void touchLastAccessed(String documentId) {
+        Document document = documentsById.get(documentId);
+        if (document != null) {
+            document.setLastAccessedAt(Instant.now());
+        }
     }
 
     /** Snapshot of every live document, used by retention sweeps. */
