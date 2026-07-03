@@ -88,12 +88,17 @@ jobs:
       - name: Update code graph
         run: |
           graphify update "${{ steps.vars.outputs.module }}"
-          MOD_GRAPH="${{ steps.vars.outputs.module }}/graphify-out/graph.json"
-          if [ -f "$MOD_GRAPH" ]; then
-            cp "$MOD_GRAPH" graphify-out/graph.json
+          MOD_OUT="${{ steps.vars.outputs.module }}/graphify-out"
+          if [ -f "$MOD_OUT/graph.json" ]; then
+            cp "$MOD_OUT/graph.json" graphify-out/graph.json
             echo "copied refreshed graph -> graphify-out/graph.json"
           else
-            echo "::warning::graphify update produced no $MOD_GRAPH; keeping committed graph"
+            echo "::warning::graphify update produced no $MOD_OUT/graph.json; keeping committed graph"
+          fi
+          # Keep graphify's own community labels alongside the graph.
+          if [ -f "$MOD_OUT/.graphify_labels.json" ]; then
+            cp "$MOD_OUT/.graphify_labels.json" graphify-out/.graphify_labels.json
+            echo "copied community labels -> graphify-out/.graphify_labels.json"
           fi
 
       # 3. Map diff -> impacted flows + edge deltas, and apply the highlight plan
@@ -103,6 +108,13 @@ jobs:
           BASE_ARG=""
           [ -f base-graph.json ] && BASE_ARG="--base-graph base-graph.json"
           python code2docs/map_impact.py changed.txt $BASE_ARG --apply-flows
+
+      # 3b. Discover flows for NEW entry points this merge introduced (e.g. a
+      #     new handle*() controller method) and append them to flows.json +
+      #     impacted.json, tagged "new this release". Existing flows and their
+      #     highlights are left untouched.
+      - name: Discover new flows
+        run: python code2docs/extract_flows.py --merge-new --impacted code2docs/impacted.json
 
       # 4. Re-narrate impacted flows (drift-aware agent) — best effort. The
       #    deterministic highlights above already stand on their own; this only
@@ -122,7 +134,11 @@ jobs:
       - name: Render release digest
         run: python code2docs/render_release_digest.py changed.txt --pr "${{ steps.vars.outputs.pr }}"
 
+      # Best effort, like the re-narrate step: Confluence is an external
+      # publish target — a bad token or duplicate title must never block the
+      # Pages deploy or the docs review PR.
       - name: Sync impacted Confluence pages (draft/preview)
+        continue-on-error: true
         env:
           CONFLUENCE_BASE_URL: ${{ secrets.CONFLUENCE_BASE_URL }}
           CONFLUENCE_USER: ${{ secrets.CONFLUENCE_USER }}

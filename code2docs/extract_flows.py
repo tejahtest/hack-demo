@@ -22,6 +22,10 @@ Usage:
     python code2docs/extract_flows.py                 # write code2docs/flows.json
     python code2docs/extract_flows.py --dry-run       # print summary only
     python code2docs/extract_flows.py --out out.json  # custom output
+    python code2docs/extract_flows.py --merge-new --impacted code2docs/impacted.json
+        # post-merge: keep existing flows (and their release highlights) as-is,
+        # append flows only for NEW entry points, tagged "new this release",
+        # and register them in impacted.json so the update renders them.
 """
 
 from __future__ import annotations
@@ -212,6 +216,12 @@ def main():
     ap.add_argument("--graph", default=None, help="override graph.json path")
     ap.add_argument("--out", default=None, help="override flows.json output path")
     ap.add_argument("--dry-run", action="store_true", help="print summary, don't write")
+    ap.add_argument("--merge-new", action="store_true",
+                    help="append flows for new entry points to the existing "
+                         "flows.json instead of regenerating it")
+    ap.add_argument("--impacted", default=None,
+                    help="with --merge-new: add the new flow ids to this "
+                         "impacted.json so render/sync pick them up")
     args = ap.parse_args()
 
     c2d.init_io()
@@ -236,11 +246,26 @@ def main():
     ov_path = c2d.REPO_ROOT / "code2docs" / "flow_overrides.json"
     overrides = json.loads(ov_path.read_text(encoding="utf-8")) if ov_path.exists() else {}
 
+    # Merge mode: existing flows (and their release highlights) are kept as-is;
+    # only entry points not already covered may seed a flow, and only if they
+    # match an entry-point pattern (so utility roots don't sneak in post-merge).
+    existing_doc, existing_flows = None, []
+    if args.merge_new:
+        flows_path = c2d._abs(cfg["flows_path"])
+        existing_doc = json.loads(flows_path.read_text(encoding="utf-8"))
+        existing_flows = existing_doc.get("flows", [])
+    used_ids = {f["id"] for f in existing_flows}
+    used_entries = {f.get("entry", {}).get("id") for f in existing_flows}
+    entry_pats = [re.compile(p) for p in ex.get("entry_point_patterns", [])]
+
     flows = []
-    used_ids = set()
     for score, size, entry_id, entry_node in entries:
-        if len(flows) >= ex.get("max_flows", 8):
+        if len(existing_flows) + len(flows) >= ex.get("max_flows", 8):
             break
+        if entry_id in used_entries:
+            continue
+        if args.merge_new and not any(p.search(entry_node["label"]) for p in entry_pats):
+            continue
         transitions = walk(adj, entry_id, graph["_nodes_by_id"],
                            ex.get("max_depth", 4), ex.get("max_steps", 8))
         if len(transitions) < ex.get("min_steps", 2):
@@ -252,16 +277,31 @@ def main():
         used_ids.add(flow["id"])
         flows.append(flow)
 
-    doc = {
-        "module": cfg["module_name"],
-        "moduleRoot": cfg["module_root"],
-        "version": version,
-        "baselineVersion": c2d.short_version(version),
-        "generatedFrom": graph.get("built_at_commit"),
-        "flows": flows,
-    }
+    if args.merge_new:
+        # Tag every step of an appended flow (past the user trigger) as new this
+        # release, so the living docs highlight the whole flow the way map_impact
+        # highlights added steps.
+        short_v = c2d.short_version(version)
+        for flow in flows:
+            flow["release"] = {"version": short_v}
+            for step in flow["steps"][1:]:
+                step["since"] = short_v
+                step.setdefault("changed", False)
+        existing_doc["flows"] = existing_flows + flows
+        existing_doc["version"] = version
+        doc = existing_doc
+    else:
+        doc = {
+            "module": cfg["module_name"],
+            "moduleRoot": cfg["module_root"],
+            "version": version,
+            "baselineVersion": c2d.short_version(version),
+            "generatedFrom": graph.get("built_at_commit"),
+            "flows": flows,
+        }
 
-    print(f"Extracted {len(flows)} flows from {len(entries)} entry candidates "
+    mode = "Appended" if args.merge_new else "Extracted"
+    print(f"{mode} {len(flows)} flows from {len(entries)} entry candidates "
           f"(module {cfg['module_name']} v{version}):")
     for f in flows:
         print(f"  - {f['id']:32s} {len(f['steps'])} steps, "
@@ -274,6 +314,22 @@ def main():
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(doc, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nWrote {out_path}")
+
+    # Register the appended flows as impacted so the scoped render + Confluence
+    # sync steps include them without a full re-render.
+    if args.merge_new and args.impacted and flows:
+        imp_path = Path(args.impacted)
+        if imp_path.exists():
+            imp = json.loads(imp_path.read_text(encoding="utf-8"))
+            for f in flows:
+                if f["id"] not in imp.setdefault("flows", []):
+                    imp["flows"].append(f["id"])
+                    imp.setdefault("flowDetails", []).append({
+                        "id": f["id"], "reasons": ["new-flow"],
+                        "changes": {"addSteps": [], "markChanged": []},
+                    })
+            imp_path.write_text(json.dumps(imp, indent=2, ensure_ascii=False), encoding="utf-8")
+            print(f"Registered {len(flows)} new flow(s) in {imp_path}")
 
 
 if __name__ == "__main__":

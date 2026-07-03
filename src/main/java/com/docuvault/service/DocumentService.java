@@ -58,6 +58,21 @@ public class DocumentService {
         return plainText;
     }
 
+    /** Renames a document after an EDIT access check; the change is audited. */
+    public Document renameDocument(String documentId, String userId, String newFileName) {
+        InputValidator.validateFileName(newFileName);
+        if (!accessService.checkAccess(documentId, userId, Policy.Permission.EDIT)) {
+            throw new SecurityException("Rename denied for document " + documentId);
+        }
+        Document document = documentRepository.findDocument(documentId);
+        String previousName = document.getFileName();
+        document.setFileName(newFileName);
+        documentRepository.saveDocument(document);
+        auditService.recordEvent(AuditEvent.EventType.DOCUMENT_RENAMED, userId,
+                documentId, previousName + " -> " + newFileName);
+        return document;
+    }
+
     /** Deletes a document and destroys its key — a cryptographic shred. */
     public void deleteDocument(String documentId, String ownerId) {
         Document document = documentRepository.findDocument(documentId);
