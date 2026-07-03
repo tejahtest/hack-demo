@@ -26,6 +26,14 @@ public class DocumentController {
         return documentService.openDocument(documentId, userId);
     }
 
+    /** A user renames a document; the EDIT permission is checked before the change. */
+    public String handleRenameDocument(String documentId, String userId, String newFileName) {
+        VaultLogger.logInfo("DocumentController", "Rename request: " + documentId
+                + " -> " + newFileName + " by " + userId);
+        Document document = documentService.renameDocument(documentId, userId, newFileName);
+        return document.getFileName();
+    }
+
     /** A user deletes a document; its key is destroyed so the data is unrecoverable. */
     public void handleDeleteDocument(String documentId, String ownerId) {
         VaultLogger.logInfo("DocumentController", "Delete request: " + documentId + " by " + ownerId);

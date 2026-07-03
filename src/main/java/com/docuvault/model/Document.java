@@ -26,6 +26,8 @@ public class Document {
 
     public String getFileName() { return fileName; }
 
+    public void setFileName(String fileName) { this.fileName = fileName; }
+
     public String getOwnerId() { return ownerId; }
 
     public String getKeyId() { return keyId; }

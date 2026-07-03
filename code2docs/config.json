@@ -16,11 +16,11 @@
     "preview_dir": "code2docs/.confluence_preview"
   },
   "extract": {
-    "max_flows": 7,
+    "max_flows": 10,
     "max_steps": 8,
     "max_depth": 4,
     "min_steps": 2,
     "walk_relations": ["calls"],
-    "entry_point_patterns": ["^handle.*\\(\\)$"]
+    "entry_point_patterns": ["^\\.?handle.*\\(\\)$"]
   }
 }

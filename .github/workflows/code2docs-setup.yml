@@ -46,12 +46,21 @@ jobs:
         run: |
           graphify update "${{ steps.vars.outputs.module }}"
           mkdir -p graphify-out
-          MOD_GRAPH="${{ steps.vars.outputs.module }}/graphify-out/graph.json"
-          if [ -f "$MOD_GRAPH" ]; then
-            cp "$MOD_GRAPH" graphify-out/graph.json
+          MOD_OUT="${{ steps.vars.outputs.module }}/graphify-out"
+          if [ -f "$MOD_OUT/graph.json" ]; then
+            cp "$MOD_OUT/graph.json" graphify-out/graph.json
             echo "copied graph -> graphify-out/graph.json"
           else
-            echo "::error::graphify update produced no $MOD_GRAPH"; exit 1
+            echo "::error::graphify update produced no $MOD_OUT/graph.json"; exit 1
+          fi
+          # graphify names each community itself; copy its labels up so the
+          # extractor uses graphify's names for lanes (User, AccessService, ...)
+          # instead of the local dominant-class fallback.
+          if [ -f "$MOD_OUT/.graphify_labels.json" ]; then
+            cp "$MOD_OUT/.graphify_labels.json" graphify-out/.graphify_labels.json
+            echo "copied community labels -> graphify-out/.graphify_labels.json"
+          else
+            echo "::warning::no .graphify_labels.json — lane names fall back to dominant class"
           fi
 
       # 2. Extract the flow model (all flows) from the graph.
