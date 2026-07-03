@@ -21,6 +21,6 @@
     "max_depth": 4,
     "min_steps": 2,
     "walk_relations": ["calls"],
-    "entry_point_patterns": ["^handle.*\\(\\)$"]
+    "entry_point_patterns": ["^\\.?handle.*\\(\\)$"]
   }
 }
