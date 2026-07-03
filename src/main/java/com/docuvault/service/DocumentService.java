@@ -53,6 +53,7 @@ public class DocumentService {
         }
         Document document = documentRepository.findDocument(documentId);
         byte[] plainText = encryptionEngine.decryptDocument(document);
+        documentRepository.touchLastAccessed(documentId);
         auditService.recordEvent(AuditEvent.EventType.DOCUMENT_OPENED, userId,
                 documentId, document.getFileName());
         return plainText;
