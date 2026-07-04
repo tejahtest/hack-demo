@@ -7,5 +7,8 @@
   "delete-document": "884737",
   "generate-report": "917505",
   "rename-document": "622611",
-  "retention-sweep": "1310721"
+  "retention-sweep": "1310721",
+  "tag-document": "2588691",
+  "untag-document": "2752514",
+  "list-documents-by-tag": "2752531"
 }
