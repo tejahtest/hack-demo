@@ -1,7 +1,7 @@
 {
   "module": "DocuVault",
   "moduleRoot": "src",
-  "version": "1.5.0.0",
+  "version": "1.4.0.0",
   "baselineVersion": "1.2",
   "generatedFrom": "0ac5bd46bd43ad7b176061dcb2552358b66203a6",
   "flows": [
@@ -656,18 +656,6 @@
           "rel": "calls"
         },
         {
-          "from": 2,
-          "to": 2,
-          "cap": "recordWelcomeSent",
-          "say": "Records welcome sent.",
-          "since": "1.5",
-          "changed": false,
-          "tech": "`.registerUser()` -> `.recordWelcomeSent()`  ·  main/java/com/docuvault/repository/UserRepository.java:L36",
-          "fromId": "main_java_com_docuvault_service_userservice_userservice_registeruser",
-          "toId": "main_java_com_docuvault_repository_userrepository_userrepository_recordwelcomesent",
-          "rel": "calls"
-        },
-        {
           "from": 1,
           "to": 1,
           "cap": "findUserByEmail",
@@ -707,10 +695,7 @@
           "toId": "main_java_com_docuvault_repository_auditrepository_auditrepository_appendevent",
           "rel": "calls"
         }
-      ],
-      "release": {
-        "version": "1.5"
-      }
+      ]
     },
     {
       "id": "delete-document",
