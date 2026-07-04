@@ -7,5 +7,6 @@
   "delete-document": "884737",
   "generate-report": "917505",
   "rename-document": "622611",
-  "retention-sweep": "1310721"
+  "retention-sweep": "1310721",
+  "scrub-temp-file": "360471"
 }
