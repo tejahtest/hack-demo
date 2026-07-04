@@ -125,6 +125,16 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    # GitHub Pages allows only one active deployment to the github-pages
+    # environment at a time. Without this, two overlapping runs (two merges
+    # close together, or a setup + update run) race and the loser fails with
+    # "Deployment failed, try again later" — which is why a re-run "works".
+    # A shared static group serialises deployments across BOTH workflows and
+    # all runs; cancel-in-progress: false queues rather than abandoning an
+    # in-flight deploy.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write
